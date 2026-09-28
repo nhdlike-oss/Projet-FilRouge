@@ -28,64 +28,27 @@
     Bienvenue dans Entre Nous
   </h1>
   <p>
-    <em>    
-    Votre messagerie organisée simplement.
-Retrouvez tous vos échanges, <br>
- et pièces jointes au même endroit, protégés par
- <br> un chiffrement de bout en bout.</em>  
-
-   </p>
- <h2>	
-
-	Connexion à votre compte  
-   
- </h2>
-  <p> 
-        Veuiller entrez vos Identifications pour vous connecter a <br>
-        a votre messagerie.
-    </p>
-    
-    <form
-       action="/connexion " 
-  method="post">
-  <label for="Courriel">Courriel :</label>
-  <input type="text" id="Courriel" 
-name="Courriel">
-        <br>
-        <br>
-          <label for="Mot_de_pass">Mot_de_pass :</label>
-  <input type="password" id="Mot_de_pass" 
-name="Mot_de_pass">
-<br>
-<br>
- 
-
-
-
+		<form>	
+            <input type="text" name="contact" id="contact" placeholder="Email ou numéro de téléphone" required><br><br>
+            <label for="pwd">Mot de passe <br>
+                <input type="password" id="pwd"     name="password" required>
+                    <h6>Le mot de passe doit comporter au moins 8 caractères incluant un chiffre, une lettre majuscule et un caractère spécial.</h6><br><br>
+			</label>		
+			<button>
+				<a href="conversation.html">se connecter</a><br><br>
+			</button><br><br>
+            <label> 
+                <input type="checkbox" name="sauvegarder le mot de passe" required> se souvenir <br>
+            </label>
+            <h6>
+				<a href="inscription.html">s'inscrire</a> | <a href="./mot_passe_oublie.html">mot de passe oublié</h6>
+			</h6>
+		</form>
  <button type="submit">
           Se connecter
 
   </button>
   
-<br>
-<br>
-
-
-    <label>
-<input type="checkbox" 
-name="news">Se souvenir de moi
-</label>
-
- <br>
- <br>
-  <p> 
-    <a href="mot_de_pass_oublie.html"> Mot_de_pass oublie 
-
-    </a>
-  </p>
-          
-
-
 </form>
 <h3>    
    <a href="CreerCompte.html"> Cree un compte
