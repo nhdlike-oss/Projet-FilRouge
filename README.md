@@ -21,8 +21,9 @@ Offrir un espace simple, rapide et accessible pour discuter directement depuis u
 
   
 ## Équipe
-- Ton prénom et nom
-- Prénom et nom de ton coéquipier
+- NENE HASSY DIALLO
+- SUZIE VALENTIN
 
 ## Structure du projet
-(À compléter au fil des séances : description des dossiers et fichiers
+ description des dossiers et fichiers
+ À compléter au fil des séances :
