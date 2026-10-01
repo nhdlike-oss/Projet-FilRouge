@@ -22,7 +22,7 @@ Offrir un espace simple  rapide et accessible pour discuter directement depuis u
 
   
 ## Équipe
-- NENE HASSY DIALLO
+- NENE HASSY DIALLO (nhdlike-oss = hassypng)
 - SUZIE VALENTIN
 
 ## Structure du projet
