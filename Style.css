@@ -43,20 +43,26 @@
     margin-left: 20px;
 }
 
-.entete h1, h2 {
+.entete h1 {
     color: rgb(165, 91, 42);    
     text-decoration: solid;
     font-style: italic; 
     font-family: 'Times New Roman', Times, serif;  
 }
 
+h2 {
+    color: rgb(165, 91, 42);    
+    text-decoration: solid;
+    font-style: italic; 
+    font-family: 'Times New Roman', Times, serif;  
+}
 .piedPage{
     background: #ffeadc;
-    padding: 5px;
+    padding: 8px;
 }
 
 .piedPage p{
-    font-size: smaller;
+    font-size: 8px;
 }
 form {
     margin: 15px 0;
