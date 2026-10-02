@@ -1,10 +1,14 @@
- body {
+/*============= Debut style index et mot de passe oublié============== */
+.corpsPage {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: hsl(42, 100%, 98%);
     color: #7a3b1e;
     margin: 0px;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
    
 }
 
@@ -50,19 +54,56 @@
     font-family: 'Times New Roman', Times, serif;  
 }
 
-h2 {
+.vitrine h2 {
     color: rgb(165, 91, 42);    
     text-decoration: solid;
+    font-size: 30px;
     font-style: italic; 
     font-family: 'Times New Roman', Times, serif;  
 }
+.formulaire label {
+    display: block;
+    width: 270px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 12px;
+}
+
+.formulaire input[type="text"],
+.formulaire input[type="password"] {
+    width: 250px;
+}
+.connexionAcces a{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
+}
+
 .piedPage{
     background: #ffeadc;
     padding: 8px;
+    margin-top: auto;
 }
 
 .piedPage p{
     font-size: 8px;
+}
+
+.motpasseEnvoyer{
+    padding: 10px;
+    margin:  0px;
+    color: white;
+    background-color: rgb(165, 91, 42);
+    border: 2px solid rgb(165, 91, 42);
+    /* border-radius: 100px 100px 100px 100px; */
+    cursor: pointer;
+    font-weight: bold;
+}
+.motpasseEnvoyer:hover{
+    background-color:rgb(84, 51, 2);
+    border: 2px solid rgb(84, 51, 2);
+    border-radius: 100px 100px 100px 100px; 
 }
 form {
     margin: 15px 0;
@@ -78,22 +119,21 @@ input {
 }
 
 button {
-    padding: 8px 14px;
-    margin:  2px;
+    padding: 10px;
+    margin:  0px;
     background-color: rgb(165, 91, 42);
-    color: rgb(165, 91, 42);
-    border: 2px solid #c1552d;
+    border: 2px solid rgb(165, 91, 42);
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
     font-weight: bold;
 }
 
 button:hover {
-    background-color: rgb(165, 91, 42);
-    color: rgb(165, 91, 42);
+    background-color:rgb(84, 51, 2);
+    border: 2px solid rgb(84, 51, 2);
     border-radius: 100px 100px 100px 100px;
 }
-
+/* ============fin style index et mot de passe oublié ================*/
 ul {
     list-style: none;
     padding: 0;
