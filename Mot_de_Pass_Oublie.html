@@ -7,7 +7,7 @@
 			name="description" 
 			content="TD">
 	</head>
-	<body>
+	<body class="corpsPage">
 		<div  class="entete">
 			<a href="index.html" alt="/logoPage"> 
 				<img  class="logo" src="image/logo.png" alt="">
@@ -16,19 +16,22 @@
 				Entre Nous <br> 
 			</h1>
 		</div>
-		<form>	
-            <input type="text" name="contact" id="contact" placeholder="Email ou numéro de téléphone" required><br><br>
-            <label for="pwd">Mot de passe <br>
+		<form class="formulaire">	
+            <label for="">Email ou numéro de télephone* <br>	
+              <input type="text" name="contact" id="contact" required><br><br>
+            </label>
+              <label for="pwd">Nouveau mot de passe* <br>
                 <input type="password" id="pwd"     name="password" required><br><br>
                 <input type="password" id="pwd"     placeholder="Confirmez votre mot de passe" required>
-                    <h6>Le mot de passe doit comporter au moins 8 caractères incluant un chiffre, une lettre majuscule et un caractère spécial.</h6><br><br>
+                    <h6>Le mot de passe doit comporter au moins 8 caractères <br> incluant un chiffre, une lettre majuscule et un caractère spécial.</h6>
             </label>
             <label> 
-                <input type="checkbox" name="sauvegarder le mot de passe"> se souvenir <br>
-                <input type="submit" name="envoyer" id="">
-        
-        </form>
-        <footer class="piedPage">
+                <input type="checkbox" name="sauvegarder le mot de passe"> se souvenir <br><br>
+                <input class="motpasseEnvoyer" type="submit" name="envoyer" id="" class="motpasseEnvoyer">
+            </label>
+      </form>
+  
+	<footer class="piedPage">
 			<p>
 				En te connectant, tu acceptes les <a href="conditions_utilisation_EntrNousQuebec.html"> Conditions d'utilisations d'entre Nous</a> et la <a href="politique_confidentialité.html">Politique de confidentialité de notre site.</a>
 			</p>
