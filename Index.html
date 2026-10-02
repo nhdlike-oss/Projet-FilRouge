@@ -9,7 +9,7 @@
 			<link rel="stylesheet" href="Style.css">
 			<title>Entre Nous</title>
 	</head>
-<body >
+<body class="corpsPage" >
 		<div  class="entete">
 			<a href="index.html" alt="/logoPage"> 
 				<img  class="logo" src="image/logo.png" alt="">
@@ -17,7 +17,6 @@
 			<h1>
 				Entre Nous <br> 
 			</h1>
-			
 		</div>
 	<section class="vitrine">
 		<h2>
@@ -34,20 +33,23 @@
 		<h3>
 			Connexion à votre compte
 		</h3>
-		<form>	
-            <input type="text" name="contact" id="contact" placeholder="Email ou numéro de téléphone" required><br><br>
-            <label for="pwd">Mot de passe <br>
+		<form class="formulaire">
+			<label for="">Email ou numéro de télephone* <br>	
+            <input type="text" name="contact" id="contact" required><br><br>
+            </label>	
+			<label for="pwd">Mot de passe* <br>
                 <input type="password" id="pwd"     name="password" required>
-                    <h6>Le mot de passe doit comporter au moins 8 caractères incluant un chiffre, une lettre majuscule et un caractère spécial.</h6><br><br>
-			</label>		
-			<button>
+            </label>
+				<h6>Le mot de passe doit comporter au moins 8 caractères <br> incluant un chiffre, une lettre majuscule et un caractère spécial.</h6>
+			<label> 
+                <input type="checkbox" name="sauvegarder le mot de passe" required> se souvenir <br>
+            </label><br><br>	
+			<button class="connexionAcces">
 				<a href="Conversation.html">se connecter</a><br><br>
 			</button><br><br>
-            <label> 
-                <input type="checkbox" name="sauvegarder le mot de passe" required> se souvenir <br>
-            </label>
             <h6>
-				<a href="CreerCompte.html">s'inscrire</a> | <a href="./mot_de_pass_oublie.html">mot de passe oublié</h6>
+				<a href="CreerCompte.html">Créer un compte</a> |
+				<a href="./mot_de_pass_oublie.html">mot de passe oublié</a>
 			</h6>
 		</form>
 	</section>
