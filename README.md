@@ -15,7 +15,9 @@ Offrir un espace simple  rapide et accessible pour discuter directement depuis u
 - Affichage horodaté des messages
 - 
 ## Fonctionnalité supplémentaire
-**Appel vidéo 1 à 1** : un utilisateur peut appeler un de ses contacts depuis la messagerie. Le contact peut accepter ou refuser puis les deux personnes se voient et s'entendent en temps réel dans le navigateur. Un bouton permet de raccrocher à tout moment.
+**La Photo de profil** : La photo de profil permet à chaque utilisateur de personnaliser son compte avec une image qui le représente. Elle s'affiche à côté de ses messages dans la liste des conversations ce qui permet d'identifier rapidement ses interlocuteurs.
+
+
 
 ## Technologies utilisées
 - HTML, CSS, JavaScript...
