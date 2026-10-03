@@ -1,4 +1,4 @@
-/*============= Debut style index et mot de passe oublié============== */
+/*============= Debut style index et mot de passe oublié ============== */
 .corpsPage {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -8,8 +8,7 @@
     padding: 0px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-   
+    min-height: 100vh;  
 }
 
 .logo{
@@ -61,6 +60,7 @@
     font-style: italic; 
     font-family: 'Times New Roman', Times, serif;  
 }
+
 .formulaire label {
     display: block;
     width: 270px;
@@ -73,6 +73,7 @@
 .formulaire input[type="password"] {
     width: 250px;
 }
+
 .connexionAcces a{
     color: white;
     text-decoration: none;
