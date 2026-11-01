@@ -3,25 +3,44 @@
   
    <head>
     <meta charset="utf-8">
-<title>ENTRE NOUS </title>
+<title>Messagerie </title>
 <meta name="viewport" 
       content="width=device-width, initial-scale=1.0">
+	  <link rel="stylesheet" href="Style.css">
 </head>
-<body>
-	<h1>ENTRE Nous</h1>
+<body> 
+	<div id="app">	
+	
+	<aside id="barre">
+	<h1>Conversation</h1>
 	<br>
-	<h4>	
-		Liste des Conversations
-	</h4>
-  
-     <a href="Conversation.js">conversation</a>
-  
+	  liste des messages
+	<ul id="Liste_messages">	</ul>
+  <form id="formulaire">
+  <input type="text" id="champ" placeholder="Nouvelle conversation" autocomplete="off" required>
+   <button type="submit">+</button>
+</form>
+ 
+<main id="zone-chat">
+      <h2 id="titre">Choisis ou crée une conversation</h2>
+
+      <ul id="messages"></ul>
+	  <form id="formulaire" hidden>
+        <input type="text" id="champ" placeholder="Écrire un message…" autocomplete="off" required>
+        <button type="submit">Envoyer</button>
+      </form>
+    </main>
+	</aside>
+
 <h5>	
 	<a href="Contact.html">	Mes contacts
 	</a>
 	<br>
 	<a href="Parametres.html">	Parametre </a>
 </h5>
+ <p><a href="index.html">← Retour</a></p>
+
+ </div>
 
 <script src="Conversation.js"></script>
 </html>
