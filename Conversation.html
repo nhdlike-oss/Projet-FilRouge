@@ -3,16 +3,16 @@
   
    <head>
     <meta charset="utf-8">
-<title>Messagerie </title>
+<title>Jase </title>
 <meta name="viewport" 
       content="width=device-width, initial-scale=1.0">
 	  <link rel="stylesheet" href="Style.css">
 </head>
 <body> 
-	<div id="app">	
+	<div id="page_web">	
 	
 	<aside id="barre">
-	<h1>Conversation</h1>
+	<h1>Messagerie</h1>
 	<br>
 	  liste des messages
 	<ul id="Liste_messages">	</ul>
@@ -22,13 +22,15 @@
 </form>
  
 <main id="zone-chat">
-      <h2 id="titre">Choisis ou crée une conversation</h2>
 
+      <h2 id="titre">Choisis ou crée une conversation</h2>
+	  
       <ul id="messages"></ul>
 	  <form id="formulaire" hidden>
         <input type="text" id="champ" placeholder="Écrire un message…" autocomplete="off" required>
         <button type="submit">Envoyer</button>
       </form>
+	  
     </main>
 	</aside>
 
@@ -42,5 +44,8 @@
 
  </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
 <script src="Conversation.js"></script>
+</body>
 </html>
