@@ -23,12 +23,11 @@ const listeMessages = document.getElementById("messages");
 const formMessage = document.getElementById("formulaire");
 const champMessage = document.getElementById("champ");
 const boutonRetour = document.getElementById("bouton-retour");
-const boutonDeconnexion = document.getElementById("deconnexion");
 
 
 // ---------- 3. Les salons ----------
 
-// Va chercher les salons dans Supabase et les affiche
+
 async function chargerSalons() {
   const { data, error } = await client
     .from("salons")
@@ -86,6 +85,8 @@ async function chargerMessages() {
     .order("created_at", { ascending: false })
     .limit(50);
 
+    console.log("Messages récupérés :", data);
+console.log("Erreur récupération :", error);
   if (error) {
     console.log("Erreur messages :", error);
     return;
@@ -161,28 +162,32 @@ formMessage.addEventListener("submit", async function (event) {
   const texte = champMessage.value.trim();
   if (texte === "") return;
 
-  const { error } = await client
+  console.log("Utilisateur :", utilisateur);
+  console.log("Salon actif :", salonActif);
+    if (!utilisateur || !salonActif) {
+    console.error("Utilisateur ou salon manquant !");
+    return;
+  }
+
+  const { data, error } = await client
     .from("messages")
     .insert({
       salon_id: salonActif.id,
-      contenu: texte
-    });
-
+      contenu: texte,
+      user_id: utilisateur.id
+    })
+    .select();
   if (error) {
     console.log("Erreur envoi :", error);
     return;
   }
 
+    console.log("Message enregistré :", data);
   champMessage.value = "";
   chargerMessages();
 });
 
 boutonRetour.addEventListener("click", fermerSalon);
-
-boutonDeconnexion.addEventListener("click", async function () {
-  await client.auth.signOut();
-  window.location.href = "connexion.html";
-});
 
 
 // ---------- 6. Démarrage ----------
@@ -203,7 +208,7 @@ async function demarrer() {
   document.getElementById("nom-utilisateur").textContent = nomUtilisateur;
 
   // 4. On affiche les salons
-  chargerSalons();
+ await  chargerSalons();
 // 5. On affiche le nom (si l'élément existe dans le HTML)
   const spanNom = document.getElementById("nom-utilisateur");
   if (spanNom !== null) {
