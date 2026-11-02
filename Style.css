@@ -96,7 +96,7 @@
     margin:  0px;
     color: white;
     background-color: rgb(214, 180, 201);
-    border: 2px solid rgb(165, 91, 42);
+    border: 2px solid rgb(194, 101, 145);
     /* border-radius: 100px 100px 100px 100px; */
     cursor: pointer;
     font-weight: bold;
@@ -116,7 +116,7 @@ input {
     border: 1px solid #c9bfc5;
     border-radius: 4px;
     background-color: white;
-    color: #7a3b1e;
+    color: #9e5890;
 }
 
 button {
