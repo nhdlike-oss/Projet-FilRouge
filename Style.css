@@ -20,11 +20,11 @@
     background-color:  hsl(35, 100%, 97%);
     border-color: #b94c77;
     border-radius: 40px;
-    border-style: double;
-    max-width: 600px;
+    border-style: 0;
+    max-width: 380px;
     margin: 40px auto;
     margin-left: 300px;
-    margin-bottom: 100px;
+    margin:40px auto;
     padding: 0 20px;
 }
 
@@ -47,6 +47,7 @@
 }
 
 .entete h1 {
+    font-size: 24px; 
     color: rgb(196, 137, 168);    
     text-decoration: solid;
     font-style: italic; 
@@ -56,7 +57,7 @@
 .vitrine h2 {
     color: rgb(179, 16, 103);    
     text-decoration: solid;
-    font-size: 30px;
+    font-size: 20px;
     font-style: italic; 
     font-family: 'Times New Roman', Times, serif;  
 }
@@ -71,7 +72,8 @@
 
 .formulaire input[type="text"],
 .formulaire input[type="password"] {
-    width: 250px;
+    width: 200px;
+    border-radius: 0%;
 }
 
 .connexionAcces a{
@@ -121,10 +123,10 @@ input {
 
 button {
     padding: 10px;
-    margin:  20px;
+    margin:  10px;
     background-color: rgb(208, 126, 189);
     border: 2px solid rgb(164, 112, 156);
-    border-radius: 100px 100px 100px 100px;
+    border-radius: 0;
     cursor: pointer;
     font-weight: bold;
 }
@@ -135,28 +137,5 @@ button:hover {
     border-radius: 100px 100px 100px 100px;
 }
 /* ============fin style index et mot de passe oublié ================*/
-ul {
-    list-style: none;
-    padding: 0;
-}
 
-li {
-    padding: 8px;
-    margin: 4px 0;
-    background-color: white;
-    border: 1px solid #e8c4ac;
-    border-radius: 4px;
-}
-
-li a {
-    text-decoration: none;
-    color: #c1552d;
-    font-weight: bold;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #e8c4ac;
-    margin: 20px 0;
-}
 
