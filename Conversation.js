@@ -13,7 +13,7 @@ let salonActif = null;    // le salon ouvert (null = aucun)
 
 // ---------- 2. Éléments de la page ----------
 
-const app = document.getElementById("app");
+const app = document.getElementById("page_web");
 const listeSalons = document.getElementById("liste-conversations");
 const formSalon = document.getElementById("formulaire-conversation");
 const champSalon = document.getElementById("nom-conversation");
@@ -204,12 +204,10 @@ async function demarrer() {
 
   // 4. On affiche les salons
   chargerSalons();
-
-  // 5. Toutes les 3 secondes, on recharge les messages et les salons
-  setInterval(function () {
-    chargerMessages();
-    chargerSalons();
-  }, 3000);
+// 5. On affiche le nom (si l'élément existe dans le HTML)
+  const spanNom = document.getElementById("nom-utilisateur");
+  if (spanNom !== null) {
+    spanNom.textContent = nomUtilisateur;
+  }
 }
-
 demarrer();

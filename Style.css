@@ -2,8 +2,8 @@
 .corpsPage {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: hsl(42, 100%, 98%);
-    color: #7a3b1e;
+    background-color: hsl(332, 56%, 90%);
+    color: #b94c77;
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -18,7 +18,7 @@
 
 .vitrine{
     background-color:  hsl(35, 100%, 97%);
-    border-color: #e8c4ac;
+    border-color: #b94c77;
     border-radius: 40px;
     border-style: double;
     max-width: 600px;
@@ -29,7 +29,7 @@
 }
 
 .vitrine em{
-    color:#cd8d6f;
+    color:#b94c77;
 }
 
 .entete {
@@ -47,14 +47,14 @@
 }
 
 .entete h1 {
-    color: rgb(165, 91, 42);    
+    color: rgb(196, 137, 168);    
     text-decoration: solid;
     font-style: italic; 
     font-family: 'Times New Roman', Times, serif;  
 }
 
 .vitrine h2 {
-    color: rgb(165, 91, 42);    
+    color: rgb(179, 16, 103);    
     text-decoration: solid;
     font-size: 30px;
     font-style: italic; 
@@ -63,7 +63,7 @@
 
 .formulaire label {
     display: block;
-    width: 270px;
+    width: 200px;
     margin: 0 auto;
     text-align: left;
     font-size: 12px;
@@ -95,25 +95,25 @@
     padding: 10px;
     margin:  0px;
     color: white;
-    background-color: rgb(165, 91, 42);
+    background-color: rgb(214, 180, 201);
     border: 2px solid rgb(165, 91, 42);
     /* border-radius: 100px 100px 100px 100px; */
     cursor: pointer;
     font-weight: bold;
 }
 .motpasseEnvoyer:hover{
-    background-color:rgb(84, 51, 2);
-    border: 2px solid rgb(84, 51, 2);
+    background-color:rgb(195, 145, 190);
+    border: 2px solid rgb(171, 126, 153);
     border-radius: 100px 100px 100px 100px; 
 }
 form {
-    margin: 15px 0;
+    margin: 0px 0;
 }
 
 input {
     padding: 8px;
-    margin-right: 8px;
-    border: 1px solid #c1552d;
+    margin-right: 10px;
+    border: 1px solid #c9bfc5;
     border-radius: 4px;
     background-color: white;
     color: #7a3b1e;
@@ -121,17 +121,17 @@ input {
 
 button {
     padding: 10px;
-    margin:  0px;
-    background-color: rgb(165, 91, 42);
-    border: 2px solid rgb(165, 91, 42);
+    margin:  20px;
+    background-color: rgb(208, 126, 189);
+    border: 2px solid rgb(164, 112, 156);
     border-radius: 100px 100px 100px 100px;
     cursor: pointer;
     font-weight: bold;
 }
 
 button:hover {
-    background-color:rgb(84, 51, 2);
-    border: 2px solid rgb(84, 51, 2);
+    background-color:rgb(147, 129, 138);
+    border: 2px solid rgb(147, 129, 138);
     border-radius: 100px 100px 100px 100px;
 }
 /* ============fin style index et mot de passe oublié ================*/
@@ -160,145 +160,3 @@ hr {
     margin: 20px 0;
 }
 
-/* ===== Mise en page : barre à gauche, chat à droite ===== */
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-
-
-[hidden] {
-  display: none !important;
-}
-
-#app {
-  display: flex;       
-  height: 100vh;        
-}
-
-/* ----- Barre de gauche ----- */
-#barre {
-  width: 250px;
-  padding: 15px;
-  background: #f0f0f0;
-  border-right: 1px solid #ccc;
-  overflow-y: auto;
-}
-
-
-#liste-conversations {
-  list-style: none;
-  padding: 0;
-}
-
-#liste-conversations li {
-  padding: 10px;
-  margin-bottom: 4px;
-  border-radius: 6px;/* la main apparaît au survol */
-}
-
-#liste-conversations li:hover {
-  background: #ddd;
-}
-
-/* Le salon ouvert */
-#liste-conversations li.active {
-  background: #79a04a;
-  color: white;
-}
-
-#formulaire-conversation {
-  display: flex;
-  gap: 6px;
-}
-
-#nom-conversation {
-  flex: 1;
-  min-width: 0;
-}
-
-.erreur {
-  color: #c0392b;
-}
-
-/* ----- Zone de droite : le chat ----- */
-#zone-chat {
-  flex: 1;              /* prend tout l'espace restant */
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  min-width: 0;
-  min-height: 0;
-}
-
-#messages {
-  flex: 1;              /* la liste de messages prend la hauteur disponible */
-  min-height: 0;
-  list-style: none;
-  padding: 10px;
-  margin: 0;
-  overflow-y: auto;     /* barre de défilement si trop de messages */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-#messages li {
-  background: #eee;
-  padding: 8px 12px;
-  border-radius: 12px;
-  margin-bottom: 8px;
-  width: fit-content;
-  max-width: 80%;
-}
-
-/* Mes messages : à droite et en vert */
-#messages li.moi {
-  background: #dcf8c6;
-  margin-left: auto;
-}
-
-.heure {
-  font-size: 0.7em;
-  color: #666;
-  margin-left: 10px;
-}
-
-#formulaire {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-#champ {
-  flex: 1;
-  min-width: 0;
-}
-
-/* Le bouton Retour ne sert que sur mobile */
-.bouton-retour {
-  display: none;
-}
-
-/* ----- Mobile : un seul panneau à la fois ----- */
-@media (max-width: 700px) {
-  #barre {
-    width: 100%;
-    border-right: none;
-  }
-
-  #zone-chat {
-    display: none;
-  }
-
-  #app.salon-ouvert #barre {
-    display: none;
-  }
-
-  #app.salon-ouvert #zone-chat {
-    display: flex;
-  }
-
-  .bouton-retour {
-    display: inline-block;
-  }
-}

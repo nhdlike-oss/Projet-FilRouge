@@ -15,7 +15,8 @@
 	
 	<h1>Messagerie</h1>
 	<br>
-	  liste des messages
+   <p>Connecté : <strong id="nom-utilisateur"></strong></p>
+
 	<ul id="liste-conversations"></ul>
 	
   <form id="formulaire-conversation">
@@ -23,10 +24,10 @@
   <button type="submit">+</button>
 </form>
  <p id="erreur-conversation" class="erreur"></p>
- <nav>	
 
-	<a href="Contact.html">	Mes contacts
-	</a>
+   <nav>	
+
+   	<a href="Contact.html">	Mes contacts	</a>
 	<br>
 	<a href="Parametres.html">	Parametre </a>
 </h5>
@@ -36,7 +37,8 @@
  </aside>
  
 <main id="zone-chat">
-
+ 
+    <button id="bouton-retour" class="bouton-retour">← Salons</button>
       <h2 id="titre">Choisis ou crée une conversation</h2>
 	  
       <ul id="messages"></ul>
@@ -46,7 +48,6 @@
       </form>
 	  
     </main>
-
 
 
  </div>
