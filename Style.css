@@ -635,10 +635,6 @@ button:hover {
 .pageChat #Parametre{
     background: linear-gradient(135deg, #f08fb5, #b94c77);
     padding: 12%;
-<<<<<<< HEAD
-=======
-
->>>>>>> e57f806e27d0fea74e2f8bb4449eeda74dc39fc2
 }
 
 .pageParametres button {
@@ -654,7 +650,6 @@ button:hover {
 
 .pageParametres #bouton-supprimer:hover {
     background: #962d22;
-<<<<<<< HEAD
 }
 .pageChat{
     margin:0;
@@ -804,6 +799,5 @@ button:hover {
 
 #formulaire-conversation button {
     transition: transform 0.15s;
-=======
->>>>>>> e57f806e27d0fea74e2f8bb4449eeda74dc39fc2
+
 }
