@@ -363,7 +363,7 @@
         width: 44px;
         height: 44px;
     }
-    
+
 .vitrine {
     background-color: var(--blanc);
     border: 2px solid var(--lavande);
@@ -428,6 +428,16 @@
 }
 /*============= Fin pied de page ============== */
 /* debut page creer compte */
+.pageForm {
+    text-align: left;
+}
+
+/* Deux moitiés côte à côte */
+.split {
+    flex: 1;
+    display: flex;
+    min-height: 100vh;
+}
 .sousTitre {
     margin: 0 0 25px;
     font-size: 16px;
