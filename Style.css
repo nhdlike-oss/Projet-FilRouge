@@ -70,18 +70,12 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
-/*============= Barre de navigation ============== */
+/*============= En-tête (logo + nom) ============== */
 .barre {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px 20px;
-    margin-bottom: 50px;
-    background-color: var(--blanc);
+    padding: 8px 20px;
     color: var(--gris);
-    border-bottom: 1px solid var(--violetClair);
 }
 
 .marque {
@@ -92,8 +86,8 @@
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
 }
 
@@ -102,105 +96,44 @@
     font-size: 26px;
     color: var(--gris);
 }
+/*============= Fin en-tête ============== */
 
-.menu {
-    display: flex;
-    gap: 5px;
+/*============= Page d'accueil (sans défilement) ============== */
+
+/* La page prend exactement la hauteur de l'écran */
+.pageAccueil {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
 }
 
-.lienmenu {
+.accueil {
+    flex: 1;
+    min-height: 0;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 40px;
-    border-radius: 20px;
-    color: var(--gris);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.lienmenu img {
-    width: 24px;
-    height: 24px;
-    display: none;
-}
-
-.lienmenu:hover,
-.actif {
-    background-color: var(--violetClair);
-}
-
-.actif {
-    color: var(--violet);
-}
-
-/* Téléphone */
-@media (max-width: 600px) {
-    .barre {
-        flex-direction: column;
-    }
-
-    .menu {
-        width: 100%;
-        justify-content: space-around;
-    }
-
-    .lienmenu {
-        flex-direction: column;
-        gap: 3px;
-        padding: 5px;
-    }
-
-    .lienmenu img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .texte {
-        display: none;
-    }
-
-    .actif {
-        background-color: transparent;
-    }
-
-    .actif .texte {
-        display: block;
-        background-color: var(--violet);
-        color: var(--blanc);
-        font-size: 11px;
-        padding: 2px 10px;
-        border-radius: 20px;
-    }
-}
-/*============= Fin barre de navigation ============== */
-
-/*============= Page d'accueil ============== */
-.accueil {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
     gap: 40px;
     width: 100%;
     max-width: 1100px;
-    margin: 20px auto 40px;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 10px 20px;
     box-sizing: border-box;
     text-align: left;
 }
 
 /* ----- Présentation (à gauche) ----- */
 .presentation {
-    flex: 999 1 500px;
+    flex: 5 1 500px;
     min-width: 0;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .presentation h2 {
     margin: 0;
-    font-size: 40px;
+    font-size: 34px;
     color: var(--violet);
 }
 
@@ -216,15 +149,16 @@
 }
 
 .intro {
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-/* Diaporama: images */
+/* Diaporama : sa hauteur s'adapte à l'écran */
 .diaporama {
     position: relative;
     aspect-ratio: 16 / 9;
-    border-radius: 20px;
+    max-height: 38vh;
+    border-radius: 15px;
     overflow: hidden;
     background-color: var(--violetClair);
 }
@@ -263,39 +197,39 @@
     .diapo:first-child { opacity: 1; }
 }
 
-
 .atouts {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
 }
 
 .atouts li {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 15px;
+    gap: 4px;
+    padding: 12px;
     border-radius: 15px;
     background-color: var(--blanc);
     border: 1px solid var(--violetClair);
     color: var(--gris);
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.4;
 }
 
 .atouts strong {
     color: var(--violet);
-    font-size: 16px;
+    font-size: 15px;
 }
 
 /* ----- Connexion (à droite) ----- */
 .connexion {
     flex: 1 1 320px;
-    max-width: 380px;
-    padding: 30px;
+    max-width: 400px;
+    max-height: 100%;
+    padding: 25px 30px;
     box-sizing: border-box;
     border-radius: 20px;
     background-color: var(--blanc);
@@ -303,7 +237,7 @@
 }
 
 .connexion h3 {
-    margin: 0 0 20px;
+    margin: 0 0 15px;
     font-size: 24px;
     color: var(--violet);
 }
@@ -312,7 +246,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 14px;
     font-weight: bold;
     color: var(--gris);
@@ -332,7 +266,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 14px;
 }
 
@@ -355,7 +289,7 @@
 
 .connexion .connexionAcces {
     width: 100%;
-    margin: 0 0 20px;
+    margin: 0 0 15px;
     padding: 12px;
     font-size: 16px;
 }
@@ -368,27 +302,60 @@
 }
 
 .inscription {
-    padding-top: 15px;
+    padding-top: 12px;
     border-top: 1px solid var(--violetClair);
 }
 
-/* Pour l'adaptabilité de téléphone : caché sur ordinateur */
+/* Bouton téléphone : caché sur ordinateur */
 .connexionMobile {
     display: none;
 }
 
-@media (max-width: 600px) {
+/* ----- Tablette et téléphone ----- */
+@media (max-width: 900px) {
+    .accueil {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .presentation {
+        flex: 1;
+        width: 100%;
+        min-height: 0;
+    }
+
     .presentation h2 {
-        font-size: 30px;
+        font-size: 28px;
+    }
+
+    .diaporama {
+        flex: 1;
+        min-height: 0;
+        max-height: none;
+        aspect-ratio: auto;
+    }
+
+    /* Les 3 points forts sont cachés pour que tout tienne */
+    .atouts {
+        display: none;
     }
 
     .connexion {
         display: none;
+        width: 100%;
         max-width: none;
+        overflow-y: auto;
     }
 
+    /* Le formulaire s'affiche quand on touche « Se connecter » */
     .connexion:target {
         display: block;
+    }
+
+    .connexion:target ~ .connexionMobile,
+    .accueil:has(.connexion:target) .presentation {
+        display: none;
     }
 
     .connexionMobile {
@@ -399,13 +366,10 @@
         width: 100%;
     }
 
-    .connexion:target ~ .connexionMobile {
-        display: none;
-    }
-
     .connexionMobile .bouton {
         display: block;
         width: 100%;
+        max-width: 400px;
         padding: 14px;
         box-sizing: border-box;
         border-radius: 100px;
@@ -414,7 +378,14 @@
         text-align: center;
         text-decoration: none;
     }
+
+    .logo {
+        width: 44px;
+        height: 44px;
+    }
 }
+
+/* Anciennes classes gardées pour la page Mot de passe oublié */
 .vitrine {
     background-color: var(--blanc);
     border: 2px solid var(--lavande);
@@ -451,7 +422,7 @@
 /*============= Pied de page ============== */
 .piedPage {
     margin-top: auto;
-    padding: 15px 20px;
+    padding: 10px 20px;
     font-size: 13px;
     background-color: var(--violet);
     color: var(--blanc);
@@ -461,13 +432,13 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5px 20px;
+    gap: 0 20px;
 }
 
 .piedPage a {
     color: var(--blanc);
     text-decoration: none;
-    padding: 8px 0;
+    padding: 6px 0;
 }
 
 .piedPage a:hover {
@@ -475,7 +446,7 @@
 }
 
 .piedPage p {
-    margin: 5px 0 0;
+    margin: 4px 0 0;
 }
 /*============= Fin pied de page ============== */
 
@@ -664,7 +635,6 @@ button:hover {
 .pageChat #Parametre{
     background: linear-gradient(135deg, #f08fb5, #b94c77);
     padding: 12%;
-
 }
 
 .pageParametres button {
@@ -680,4 +650,154 @@ button:hover {
 
 .pageParametres #bouton-supprimer:hover {
     background: #962d22;
+}
+.pageChat{
+    margin:0;
+    font-family: Arial,  sans-serif;
+    background:hsl(332, 56%, 92%);
+    color: #444;
+
+}
+[hidden]{
+    display: none;
+}
+#page_web{
+    display: flex;
+    height: 100vh;
+}
+#barre{
+    width: 250px;
+    padding: 15px;
+    background: #ffeadc;
+    overflow-y: auto;
+    text-align: left;
+    box-shadow: 2px 0 10px rgba(185, 76, 119, 0.15);
+}
+#barre h1{
+    font-size: 22px;
+    color: #b94c77;
+    margin: 0 0 10px;
+
+}
+#barre a {
+     color: #b94c77;
+    font-size: 14px;
+}
+.pageChat #liste-conversation{
+     list-style: none;
+    padding: 0;
+    margin:0 0 10px
+}
+#liste-conversation li{
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+#liste-conversations li:hover {
+    background: #f5d6e4;
+    transform: translateX(4px);}
+
+    #liste-conversations li.active{
+         background: linear-gradient(135deg, #f08fb5, #b94c77);
+    color: white;
+    }
+    #formulaire-conversation{
+        display: block;
+        gap:6px;
+    }
+    nom-conversation{
+        flex: 1;
+    min-width: 0;          
+    margin: 0;
+    border-radius: 20px;
+    padding: 8px 12px;
+    }
+ #formulaire-conversation button {
+    margin: 0;
+    padding: 6px 14px;}
+.erreur {
+    color: #bd2818;
+    font-size: 15px;
+
+}
+
+#zone-chat{
+    flex: 1;               
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    min-width: 0;
+    min-height: 0;
+}
+#titre {
+    background: linear-gradient(135deg, #f08fb5, #b94c77);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 20px;
+    margin: 0 0 12px;
+    box-shadow: 0 2px 8px rgba(185, 76, 119, 0.3);
+
+}
+#messages {
+    flex: 1;              
+    min-height: 0;
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    overflow-y: auto;      
+    scroll-behavior: smooth;
+    background: rgb(248, 218, 235);
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(140, 119, 127, 0.15);
+}
+#messages li {
+    background: #f3e9ef;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    width: fit-content;    
+    max-width: 75%;
+    border-radius: 18px 18px 18px 4px;   
+    word-wrap: break-word;              
+}
+#messages li.moi {
+    background: linear-gradient(135deg, #f08fb5, #b94c77);
+    color: white;
+    margin-left: auto;
+    border-radius: 18px 18px 4px 18px;
+}
+#heure {
+    display: block;
+    font-size: 11px;
+    opacity: 0.7;
+    margin: 4px 0 0;
+    text-align: left;
+}
+#formulaire {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+}
+#champ {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 25px;
+    border: 2px solid #f5d6e4;
+    transition: border-color 0.2s;
+}
+#champ:focus {
+    outline: none;
+    border-color: #b94c77;
+}
+#formulaire button {
+    margin: 0;
+    padding: 10px 20px;
+}
+
+#formulaire-conversation button {
+    transition: transform 0.15s;
+
 }
