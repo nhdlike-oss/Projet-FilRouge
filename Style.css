@@ -520,7 +520,7 @@ button:hover {
 
 }
 [hidden]{
-    display: none !important;
+    display: none;
 }
 #page_web{
     display: flex;
