@@ -509,11 +509,8 @@ button:hover {
     border: 2px solid rgb(147, 129, 138);
     border-radius: 100px 100px 100px 100px;
 }
-<<<<<<< Updated upstream
 /* ============fin style index et mot de passe oublié ================*/
  
-=======
->>>>>>> Stashed changes
 
 .pageChat{
     margin:0;
@@ -668,7 +665,6 @@ button:hover {
     background: linear-gradient(135deg, #f08fb5, #b94c77);
     padding: 12%;
 
-<<<<<<< HEAD
 }
 
 .pageParametres button {
@@ -684,155 +680,4 @@ button:hover {
 
 .pageParametres #bouton-supprimer:hover {
     background: #962d22;
-=======
-
-.pageChat{
-    margin:0;
-    font-family: Arial,  sans-serif;
-    background:hsl(332, 56%, 92%);
-    color: #444;
-
-}
-[hidden]{
-    display: none !important;
-}
-#page_web{
-    display: flex;
-    height: 100vh;
-}
-#barre{
-    width: 250px;
-    padding: 15px;
-    background: #ffeadc;
-    overflow-y: auto;
-    text-align: left;
-    box-shadow: 2px 0 10px rgba(185, 76, 119, 0.15);
-}
-#barre h1{
-    font-size: 22px;
-    color: #b94c77;
-    margin: 0 0 10px;
-
-}
-#barre a {
-     color: #b94c77;
-    font-size: 14px;
-}
-.pageChat #liste-conversation{
-     list-style: none;
-    padding: 0;
-    margin:0 0 10px
-}
-#liste-conversation li{
-    padding: 10px 14px;
-    margin-bottom: 6px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
-#liste-conversations li:hover {
-    background: #f5d6e4;
-    transform: translateX(4px);}
-
-    #liste-conversations li.active{
-         background: linear-gradient(135deg, #f08fb5, #b94c77);
-    color: white;
-    }
-    #formulaire-conversation{
-        display: block;
-        gap:6px;
-    }
-    nom-conversation{
-        flex: 1;
-    min-width: 0;          
-    margin: 0;
-    border-radius: 20px;
-    padding: 8px 12px;
-    }
- #formulaire-conversation button {
-    margin: 0;
-    padding: 6px 14px;}
-.erreur {
-    color: #bd2818;
-    font-size: 15px;
-
-}
-
-#zone-chat{
-    flex: 1;               
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    min-width: 0;
-    min-height: 0;
-}
-#titre {
-    background: linear-gradient(135deg, #f08fb5, #b94c77);
-    color: white;
-    padding: 12px 18px;
-    border-radius: 20px;
-    margin: 0 0 12px;
-    box-shadow: 0 2px 8px rgba(185, 76, 119, 0.3);
-
-}
-#messages {
-    flex: 1;              
-    min-height: 0;
-    list-style: none;
-    margin: 0;
-    padding: 15px;
-    overflow-y: auto;      
-    scroll-behavior: smooth;
-    background: rgb(248, 218, 235);
-    border-radius: 20px;
-    box-shadow: 0 2px 12px rgba(140, 119, 127, 0.15);
-}
-#messages li {
-    background: #f3e9ef;
-    padding: 10px 14px;
-    margin-bottom: 10px;
-    width: fit-content;    
-    max-width: 75%;
-    border-radius: 18px 18px 18px 4px;   
-    word-wrap: break-word;              
-}
-#messages li.moi {
-    background: linear-gradient(135deg, #f08fb5, #b94c77);
-    color: white;
-    margin-left: auto;
-    border-radius: 18px 18px 4px 18px;
-}
-#heure {
-    display: block;
-    font-size: 11px;
-    opacity: 0.7;
-    margin: 4px 0 0;
-    text-align: left;
-}
-#formulaire {
-    display: flex;
-    gap: 6px;
-    margin-top: 12px;
-}
-#champ {
-    flex: 1;
-    min-width: 0;
-    margin: 0;
-    padding: 12px 16px;
-    border-radius: 25px;
-    border: 2px solid #f5d6e4;
-    transition: border-color 0.2s;
-}
-#champ:focus {
-    outline: none;
-    border-color: #b94c77;
-}
-#formulaire button {
-    margin: 0;
-    padding: 10px 20px;
-}
-
-#formulaire-conversation button {
-    transition: transform 0.15s;
->>>>>>> b578ef19ce8b361e1d1334c38c80dd5bd35598a1
 }
