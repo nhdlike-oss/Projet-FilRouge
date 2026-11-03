@@ -15,3 +15,16 @@ formulaire.addEventListener("submit", async function (e) {
             message.hidden = false;
             return;
         }
+
+    // Demande à Supabase de créer le compte
+    const { data, error } = await client.auth.signUp({
+        email: courriel,
+        password: motDePasse,
+        options: {
+            data: {
+                numero: document.getElementById("Numero_Cell").value,
+                age: document.getElementById("Age").value,
+                pays: document.getElementById("pays").value
+            }
+        }
+    });
