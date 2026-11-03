@@ -103,9 +103,8 @@
 }
 /*============= Fin en-tête ============== */
 
-/*============= Page d'accueil (sans défilement) ============== */
+/*============= Page d'accueil ============== */
 
-/* La page prend exactement la hauteur de l'écran */
 .pageAccueil {
     height: 100vh;
     height: 100dvh;
@@ -159,7 +158,7 @@
     line-height: 1.5;
 }
 
-/* Diaporama : sa hauteur s'adapte à l'écran */
+/* Diaporama  */
 .diaporama {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -328,36 +327,6 @@
 }
 
 /* ----- Tablette et téléphone ----- */
-@media (max-width: 900px) {
-    .accueil {
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 15px;
-    }
-
-    .presentation {
-        flex: 1;
-        width: 100%;
-        min-height: 0;
-    }
-
-    .presentation h2 {
-        font-size: 28px;
-    }
-
-    .diaporama {
-        flex: 1;
-        min-height: 0;
-        max-height: none;
-        aspect-ratio: auto;
-    }
-
-    .connexion {
-        display: none;
-        width: 100%;
-        max-width: none;
-        overflow-y: auto;
-    }
 
     /* Le formulaire s'affiche quand on touche « Se connecter » */
     .connexion:target {
@@ -396,7 +365,6 @@
     }
 }
 
-/* Anciennes classes gardées pour la page Mot de passe oublié */
 .vitrine {
     background-color: var(--blanc);
     border: 2px solid var(--lavande);
@@ -460,6 +428,102 @@
     margin: 4px 0 0;
 }
 /*============= Fin pied de page ============== */
+/* debut page creer compte */
+.sousTitre {
+    margin: 0 0 25px;
+    font-size: 16px;
+}
+
+/* Deux champs sur la même ligne */
+.ligne {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 20px;
+}
+
+.champ select {
+    width: 100%;
+    height: 44px;
+    padding: 0 8px;
+    border: 1px solid var(--violet);
+    border-radius: 4px;
+    background-color: var(--blanc);
+    color: var(--gris);
+    font-size: 15px;
+}
+
+.champ select:focus {
+    outline: 3px solid var(--violetClair);
+}
+
+.aide {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.boutonForm {
+    width: 100%;
+    font-size: 16px;
+}
+
+.pageForm .boutonForm {
+    margin: 10px 0 15px;
+    padding: 12px;
+}
+
+.lienBas {
+    margin: 0;
+    text-align: center;
+}
+
+.lienBas a {
+    color: var(--violet);
+    font-weight: bold;
+}
+
+/* ----- Téléphone ----- */
+@media (max-width: 800px) {
+    .split {
+        flex-direction: column;
+    }
+
+    .cote {
+        flex: none;
+        padding: 95px 20px 30px;
+    }
+
+    .cote h2 {
+        font-size: 28px;
+    }
+
+    .cote p {
+        font-size: 15px;
+    }
+
+    .forme1 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .forme2,
+    .forme3 {
+        display: none;
+    }
+
+    .cadre {
+        flex: none;
+        padding: 20px;
+    }
+
+    .cadre h2 {
+        margin-top: 15px;
+    }
+
+    .ligne {
+        grid-template-columns: 1fr;
+    }
+}
+/*============= Fin pages Inscription et Mot de passe oublié ============== */
 
 /* ============fin index et mot de passe oublié ================*/
 
@@ -664,4 +728,3 @@ button:hover {
 .pageParametres #bouton-supprimer:hover {
     background: #962d22;
 }
-
