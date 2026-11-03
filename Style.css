@@ -125,7 +125,7 @@
     text-align: left;
 }
 
-/* ----- Présentation (à gauche) ----- */
+/* ----- Présentation (à gauche) de la page d'acceuil(index) ----- */
 .presentation {
     flex: 5 1 500px;
     min-width: 0;
@@ -238,7 +238,7 @@
     font-size: 15px;
 }
 
-/* ----- Connexion (à droite) ----- */
+/* ----- Connexion (à droite) de la page d'acceuil(index)----- */
 .connexion {
     flex: 1 1 320px;
     max-width: 400px;
@@ -321,12 +321,42 @@
     border-top: 1px solid var(--violetClair);
 }
 
-/* Bouton téléphone : caché sur ordinateur */
+/* Bouton téléphone : caché sur ordinateur _pour l'adaptabilité */
 .connexionMobile {
     display: none;
 }
 
 /* ----- Tablette et téléphone ----- */
+@media (max-width: 900px) {
+    .accueil {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .presentation {
+        flex: 1;
+        width: 100%;
+        min-height: 0;
+    }
+
+    .presentation h2 {
+        font-size: 28px;
+    }
+
+    .diaporama {
+        flex: 1;
+        min-height: 0;
+        max-height: none;
+        aspect-ratio: auto;
+    }
+
+    .connexion {
+        display: none;
+        width: 100%;
+        max-width: none;
+        overflow-y: auto;
+    }
 
     /* Le formulaire s'affiche quand on touche « Se connecter » */
     .connexion:target {
@@ -363,6 +393,7 @@
         width: 44px;
         height: 44px;
     }
+}
 
 .vitrine {
     background-color: var(--blanc);
@@ -427,18 +458,20 @@
     margin: 4px 0 0;
 }
 /*============= Fin pied de page ============== */
-/* debut page creer compte */
+
+/*============= Pages Inscription et Mot de passe oublié ============== */
 .pageForm {
     text-align: left;
 }
 
-/* Deux moitiés côte à côte */
+/* Deux moitiés côte à côte- pour séparer la page creation du compte et mot de passe oublié*/
 .split {
     flex: 1;
     display: flex;
     min-height: 100vh;
 }
-/* ----- Partie gauche (violet) ----- */
+
+/* ----- Partie gauche (violet) pour la page créer un compte et mot de passe oublié----- */
 .cote {
     flex: 1 1 50%;
     position: relative;
@@ -451,12 +484,14 @@
     background-color: var(--violet);
     color: var(--blanc);
 }
+
 .cote .marque {
     position: absolute;
     top: 25px;
     left: 30px;
     z-index: 1;
 }
+
 .cote .marque h1 {
     color: var(--blanc);
 }
@@ -465,6 +500,7 @@
     position: relative;
     z-index: 1;
 }
+
 .cote h2 {
     margin: 0 0 20px;
     max-width: 520px;
@@ -478,6 +514,78 @@
     max-width: 480px;
     font-size: 18px;
     line-height: 1.6;
+}
+
+/* Formes décoratives(à gauche) de la page creation du compte et mot de paase oublié */
+.forme {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.forme1 {
+    width: 320px;
+    height: 320px;
+    top: -90px;
+    right: -90px;
+}
+
+.forme2 {
+    width: 140px;
+    height: 140px;
+    bottom: 50px;
+    left: -50px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.forme3 {
+    width: 40px;
+    height: 40px;
+    bottom: 170px;
+    right: 90px;
+    background-color: var(--lavande);
+}
+
+/* ----- Partie droite (formulaire) creation de compte et mot de passe oublié ----- */
+.cadre {
+    flex: 1 1 50%;
+    padding: 30px 60px;
+    box-sizing: border-box;
+    background-color: var(--lavande);
+    color: var(--gris);
+}
+
+.cadre form,
+.cadre .lienBas {
+    max-width: 520px;
+}
+
+.retour {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    color: var(--gris);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fleche {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--violetClair);
+    color: var(--violet);
+    font-size: 20px;
+}
+
+.cadre h2 {
+    margin: 30px 0 8px;
+    font-size: 32px;
+    color: var(--violet);
 }
 
 .sousTitre {
@@ -531,6 +639,7 @@
     color: var(--violet);
     font-weight: bold;
 }
+/* fin page creer de compte */
 
 /* ----- Téléphone ----- */
 @media (max-width: 800px) {
