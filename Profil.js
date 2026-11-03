@@ -19,4 +19,7 @@ champPhoto.addEventListener("change", function () {
         champPhoto.value = "";
         return;
     }
+
+    // Afficher l'aperçu à la place de l'avatar
+    apercu.src = URL.createObjectURL(fichier);
 });
