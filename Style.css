@@ -465,6 +465,20 @@
     position: relative;
     z-index: 1;
 }
+.cote h2 {
+    margin: 0 0 20px;
+    max-width: 520px;
+    font-size: 44px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.cote p {
+    margin: 0;
+    max-width: 480px;
+    font-size: 18px;
+    line-height: 1.6;
+}
 
 .sousTitre {
     margin: 0 0 25px;
