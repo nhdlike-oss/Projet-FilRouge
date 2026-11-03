@@ -451,6 +451,12 @@
     background-color: var(--violet);
     color: var(--blanc);
 }
+.cote .marque {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    z-index: 1;
+}
 
 .sousTitre {
     margin: 0 0 25px;
