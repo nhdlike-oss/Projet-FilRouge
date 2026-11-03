@@ -39,10 +39,14 @@
 		
 		<section class="connexion" id="connexion">
 			<h3>Connexion</h3>
-			<form class="formConnexion">
+
+			<!-- Message d'erreur, caché au départ -->
+			<p id="erreurConnexion" class="messageErreur" role="alert" hidden></p>
+
+			<form class="formConnexion" id="formConnexion">
 				<label class="champ" for="contact">
-					Email ou numéro de téléphone
-					<input type="text" name="contact" id="contact" autocomplete="username" required>
+					Email
+					<input type="email" name="contact" id="contact" autocomplete="email" required>
 				</label>
 
 				<label class="champ" for="pwd">
@@ -80,8 +84,10 @@
 		</nav>
 		<p>© 2026 JaWse. Tous droits réservés.</p>
 	</footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-	<script src="Conversation.js"></script>
-  <script src="supabase.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  	<script src="supabase.js"></script>
+	<script src="connexion.js"></script>
+
 </body>
 </html>
