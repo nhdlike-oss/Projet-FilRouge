@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Mon profil JaWse">
+	<link rel="icon" type="image/png" href="image/logo.png" sizes="32x32">
+	<link rel="stylesheet" href="Style.css">
+	<title>JaWse - Mon profil</title>
+</head>
+<body class="corpsPage pageForm">
+
+	<main class="split">
+
+		<!-- Partie gauche : violet -->
+		<section class="cote">
+			<span class="forme forme1" aria-hidden="true"></span>
+			<span class="forme forme2" aria-hidden="true"></span>
+			<span class="forme forme3" aria-hidden="true"></span>
+
+			<a class="marque" href="index.html">
+				<img class="logo" src="image/logo.png" alt="">
+				<h1>JaWse</h1>
+			</a>
+
+			<div class="coteTexte">
+				<h2>Ton espace à toi</h2>
+				<p>Choisis ta photo, présente-toi en quelques mots et laisse les autres découvrir qui tu es.</p>
+			</div>
+		</section>
+
+        <section class="cadre">
+			<a class="retour" href="Conversation.html">
+				<span class="fleche" aria-hidden="true">&larr;</span>
+				Retour
+			</a>
+
+			<h2>Mon profil</h2>
+			<p class="sousTitre">Modifie tes informations, puis enregistre.</p>
+
+			<form class="formCompte" id="formProfil">
+
+				<!-- Photo de profil -->
+				<div class="photoProfil">
+					<img id="apercu" class="avatar" src="image/avatar.png" alt="Ta photo de profil">
+					<div>
+						<label class="boutonPhoto" for="photo">Changer la photo</label>
+						<input type="file" id="photo" name="photo" accept="image/png, image/jpeg, image/webp" hidden>
+					</div>
+				</div>
+
+				<label class="champ" for="pseudo">
+					Nom d'utilisateur *
+					<input type="text" id="pseudo" name="pseudo" maxlength="30" required>
+				</label>
+
+				<label class="champ" for="courriel">
+					Courriel
+					<input type="email" id="courriel" name="courriel" readonly>
+				</label>
+
+				<label class="champ" for="pays">
+					Pays
+					<select id="pays" name="pays">
+						<option value="">Sélectionne un pays</option>
+						<option>Canada</option>
+						<option>France</option>
+						<option>Chine</option>
+						<option>Sénégal</option>
+						<option>Inde</option>
+						<option>Uruguay</option>
+						<option>Colombie</option>
+					</select>
+				</label>
+
+				<label class="champ" for="bio">
+					Bio
+					<textarea id="bio" name="bio" rows="3" maxlength="150" placeholder="Parle un peu de toi…"></textarea>
+				</label>
+
+				<button type="submit" class="boutonForm">Enregistrer</button>
+			</form>
+		</section>
+    </main>
+    <script src="supabase.js"></script>
+	<script src="Profil.js"></script>
+</body>
+
+</html>
