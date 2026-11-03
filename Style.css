@@ -188,7 +188,7 @@ button:hover {
     transform: translateX(4px);}
 
     #liste-conversations li.active{
-         background: linear-gradient(135deg, #f08fb5, #b94c77);
+         background: linear-gradient(135deg, #f08fb5, #ffffff);
     color: white;
     }
     #formulaire-conversation{
@@ -288,4 +288,23 @@ button:hover {
 #formulaire-conversation button {
     transition: transform 0.15s;
 }
+.pageChat #Parametre{
+    background: linear-gradient(135deg, #f08fb5, #b94c77);
+    padding: 12%;
 
+}
+
+.pageParametres button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+.pageParametres #bouton-supprimer {
+    background: #c0392b;
+    border-color: #962d22;
+    color: white;
+}
+
+.pageParametres #bouton-supprimer:hover {
+    background: #962d22;
+}
