@@ -4,7 +4,7 @@
     --blanc: #ffffff;
     --lavande: #fcfafd;
     --gris: #2d2d2d;
-    --violetClair: rgba(96, 41, 88, 0.12); 
+    --violetClair: #6029581f; 
 }
 
 /*============= Debut style index et mot de passe oublié ============== */
@@ -76,6 +76,11 @@
     align-items: center;
     padding: 8px 20px;
     color: var(--gris);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .marque {
@@ -133,7 +138,7 @@
 
 .presentation h2 {
     margin: 0;
-    font-size: 34px;
+    font-size: 28px;
     color: var(--violet);
 }
 
@@ -144,12 +149,13 @@
 }
 
 .slogan {
+    font-size: 14px;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .intro {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
 }
 
@@ -163,6 +169,15 @@
     background-color: var(--violetClair);
 }
 
+.diaporama {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    max-height: 38vh;
+    max-width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--violetClair);
+}
 .diapo {
     position: absolute;
     top: 0;
@@ -170,10 +185,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
     opacity: 0;
     animation: defiler 16s infinite;
-}
-
+}   
 .diapo:nth-child(2) { animation-delay: 4s; }
 .diapo:nth-child(3) { animation-delay: 8s; }
 .diapo:nth-child(4) { animation-delay: 12s; }
@@ -229,6 +244,7 @@
     flex: 1 1 320px;
     max-width: 400px;
     max-height: 100%;
+    margin-top: 40px;
     padding: 25px 30px;
     box-sizing: border-box;
     border-radius: 20px;
@@ -336,11 +352,6 @@
         aspect-ratio: auto;
     }
 
-    /* Les 3 points forts sont cachés pour que tout tienne */
-    .atouts {
-        display: none;
-    }
-
     .connexion {
         display: none;
         width: 100%;
@@ -424,8 +435,8 @@
     margin-top: auto;
     padding: 10px 20px;
     font-size: 13px;
-    background-color: var(--violet);
-    color: var(--blanc);
+    background-color: var(--lavande);
+    color: var(--violet);
 }
 
 .piedLiens {
@@ -436,7 +447,7 @@
 }
 
 .piedPage a {
-    color: var(--blanc);
+    color: var(--violet);
     text-decoration: none;
     padding: 6px 0;
 }
