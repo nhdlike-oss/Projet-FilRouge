@@ -6,7 +6,8 @@ const boutonSupprimer = document.getElementById("bouton-supprimer");
 
 
 async function afficherUtilisateur() {
-  const { data } = await client.auth.getSession();
+   const { data } = await client.auth.getSession();
+  await client.from("messages").delete().eq("user_id", data.session.user.id);
 
   if (data.session === null) {
     spanNom.textContent = "personne";
