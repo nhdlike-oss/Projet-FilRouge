@@ -13,3 +13,13 @@ formulaire.addEventListener("submit", async function (e) {
         email: courriel,
         password: motDePasse
  });
+
+    if (error) {
+        erreur.textContent = "Courriel ou mot de passe incorrect.";
+        erreur.hidden = false;
+    }
+    
+    else {
+        window.location.href = "Conversation.html";
+    }
+});
