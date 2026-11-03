@@ -12,3 +12,11 @@ champPhoto.addEventListener("change", function () {
         champPhoto.value = "";
         return;
     }
+
+    // Vérifier la taille (2 Mo maximum)
+    if (fichier.size > 2 * 1024 * 1024) {
+        alert("L'image doit faire moins de 2 Mo.");
+        champPhoto.value = "";
+        return;
+    }
+});
