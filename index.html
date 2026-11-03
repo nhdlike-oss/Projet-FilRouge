@@ -1,68 +1,121 @@
-­<!doctype html>
+<!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<meta 
-			name="description" 
-			content="TD">
-			<link rel="icon" type="image/png" href="image/logo.png" sizes="32x32">
-			<link rel="stylesheet" href="Style.css">
-			<title>JaWse</title>
-	</head>
-<body class="corpsPage" >
-		<div  class="entete">
-			<a href="index.html" alt="/logoPage"> 
-				<img  class="logo" src="image/logo.png" alt="">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TD">
+	<link rel="icon" type="image/png" href="image/logo.png" sizes="32x32">
+	<link rel="stylesheet" href="Style.css">
+	<title>JaWse</title>
+</head>
+<body class="corpsPage">
+
+	<!-- Barre de navigation -->
+	<header class="barre">
+		<a class="marque" href="index.html">
+			<img class="logo" src="image/logo.png" alt="">
+		</a>
+
+		<nav class="menu">
+			<a class="lienmenu actif" href="index.html" aria-label="Accueil">
+				<img src="image/accueil.svg" alt="">
+				<span class="texte">Accueil</span>
 			</a>
-			<h1>
-				JaWse <br> 
-			</h1>
-		</div>
-	<section class="vitrine">
-		<h2>
-			Bienvenue sur <br> JaWse
-		</h2>
-		<h5> 
-			JaSer-Partager-Echanger
-		</h5>
-		<em>    
-      		Votre messagerie organisée simplement. Retrouvez tous vos échanges au même endroit, protégés par un chiffrement de bout en bout.
-    	</em>  
+			<a class="lienmenu" href="Conversation.html" aria-label="Salons">
+				<img src="image/salons.svg" alt="">
+				<span class="texte">Salons</span>
+			</a>
+			<a class="lienmenu" href="Profil.html" aria-label="Profil">
+				<img src="image/profil.svg" alt="">
+				<span class="texte">Profil</span>
+			</a>
+			<a class="lienmenu" href="Parametres.html" aria-label="Paramètres">
+				<img src="image/parametres.svg" alt="">
+				<span class="texte">Paramètres</span>
+			</a>
+		</nav>
+	</header>
 
+	<main class="accueil">
 
-		<h3>
-			Connexion à votre compte
-		</h3>
-		<form class="formulaire">
-			<label for="">Email ou numéro de télephone* <br>	
-            <input type="text" name="contact" id="contact" required><br><br>
-            </label>	
-			<label for="pwd">Mot de passe* <br>
-                <input type="password" id="pwd"     name="password" required>
-            </label>
-				<h6>Le mot de passe doit comporter au moins 8 caractères <br> incluant un chiffre, une lettre majuscule et un caractère spécial.</h6>
-			<label> 
-                <input type="checkbox" name="sauvegarder le mot de passe" required> se souvenir <br>
-            </label><br><br>	
-			<button class="connexionAcces">
-				<a href="Conversation.html">se connecter</a><br><br>
-			</button><br><br>
-            <h6>
-				<a href="CreerCompte.html">Créer un compte</a> |
-				<a href="./Mot_de_Pass_Oublie.html">mot de passe oublié</a>
-			</h6>
-		</form>
-	</section>
-	<footer class="piedPage">
-			<p>
-				En te connectant, tu acceptes les <a href="conditions_utilisation_EntrNousQuebec.html"> Conditions d'utilisations d'entre Nous</a> et la <a href="politique_confidentialité.html">Politique de confidentialité de notre site.</a>
+		<!-- Présentation (à gauche) -->
+		<section class="presentation">
+			<h2>Bienvenue sur JaWse</h2>
+			<p class="slogan">Jaser - Partager - Échanger</p>
+			<p class="intro">
+				Votre messagerie organisée simplement. Retrouvez tous vos échanges au même endroit, protégés par un chiffrement de bout en bout.
 			</p>
-			<p class="piedPage">En savoir plus sur JaWse</p>
+
+			<!-- Diaporama d'images -->
+			<div class="diaporama">
+				<img class="diapo" src="image/diapo1.jpg" alt="Des personnes qui se rencontrent">
+				<img class="diapo" src="image/diapo2.jpg" alt="Une conversation qui démarre">
+				<img class="diapo" src="image/diapo3.jpg" alt="Un salon où l'on partage">
+				<img class="diapo" src="image/diapo4.jpg" alt="Des liens qui durent">
+			</div>
+
+			<ul class="atouts">
+				<li>
+					<strong>Discute en privé</strong>
+					Des messages directs avec les personnes de ton choix.
+				</li>
+				<li>
+					<strong>Rejoins des salons</strong>
+					Des espaces par thème pour échanger avec d'autres.
+				</li>
+				<li>
+					<strong>Sur tous tes appareils</strong>
+					Ordinateur, tablette ou téléphone : tes conversations te suivent.
+				</li>
+			</ul>
+		</section>
+
 		
-				copyright 2026. Tous droits réservés	
+		<section class="connexion" id="connexion">
+			<h3>Connexion</h3>
+			<form class="formConnexion">
+				<label class="champ" for="contact">
+					Email ou numéro de téléphone
+					<input type="text" name="contact" id="contact" autocomplete="username" required>
+				</label>
 
-<script src="Conversation.js"></script>
-<script src="supabase.js"></script>
+				<label class="champ" for="pwd">
+					Mot de passe
+					<input type="password" name="password" id="pwd" autocomplete="current-password" required>
+				</label>
+
+				<div class="options">
+					<label>
+						<input type="checkbox" name="souvenir"> Se souvenir de moi
+					</label>
+					<a href="Mot_de_Pass_Oublie.html">Mot de passe oublié ?</a>
+				</div>
+
+				<button type="submit" class="connexionAcces">Se connecter</button>
+			</form>
+
+			<p class="inscription">Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
+		</section>
+
+		<!-- Connexion sur téléphone-->
+		<div class="connexionMobile">
+			<a class="bouton" href="#connexion">Se connecter</a>
+			<p>Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
+		</div>
+
+	</main>
+
+	<!-- Pied de page -->
+	<footer class="piedPage">
+		<nav class="piedLiens">
+			<a href="conditions_utilisation_EntrNousQuebec.html">Conditions d'utilisation</a>
+			<a href="politique_confidentialité.html">Politique de confidentialité</a>
+			<a href="#">En savoir plus</a>
+		</nav>
+		<p>© 2026 JaWse. Tous droits réservés.</p>
+	</footer>
+
+	<script src="Conversation.js"></script>
+	<script src="supabase.js"></script>
 </body>
-
 </html>
