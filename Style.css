@@ -438,6 +438,20 @@
     display: flex;
     min-height: 100vh;
 }
+/* ----- Partie gauche (violet) ----- */
+.cote {
+    flex: 1 1 50%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    background-color: var(--violet);
+    color: var(--blanc);
+}
+
 .sousTitre {
     margin: 0 0 25px;
     font-size: 16px;
