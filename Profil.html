@@ -12,7 +12,7 @@
 
 	<main class="split">
 
-		<!-- Partie gauche : violet -->
+		<!-- Partie gauche-->
 		<section class="cote">
 			<span class="forme forme1" aria-hidden="true"></span>
 			<span class="forme forme2" aria-hidden="true"></span>
@@ -36,7 +36,6 @@
 			</a>
 
 			<h2>Mon profil</h2>
-			<p class="sousTitre">Modifie tes informations, puis enregistre.</p>
 
 			<form class="formCompte" id="formProfil">
 
@@ -44,7 +43,7 @@
 				<div class="photoProfil">
 					<img id="apercu" class="avatar" src="image/avatar.png" alt="Ta photo de profil">
 					<div>
-						<label class="boutonPhoto" for="photo">Changer la photo</label>
+						<label class="boutonPhoto" for="photo">Modifier la photo</label>
 						<input type="file" id="photo" name="photo" accept="image/png, image/jpeg, image/webp" hidden>
 					</div>
 				</div>
@@ -53,26 +52,7 @@
 					Nom d'utilisateur *
 					<input type="text" id="pseudo" name="pseudo" maxlength="30" required>
 				</label>
-
-				<label class="champ" for="courriel">
-					Courriel
-					<input type="email" id="courriel" name="courriel" readonly>
-				</label>
-
-				<label class="champ" for="pays">
-					Pays
-					<select id="pays" name="pays">
-						<option value="">Sélectionne un pays</option>
-						<option>Canada</option>
-						<option>France</option>
-						<option>Chine</option>
-						<option>Sénégal</option>
-						<option>Inde</option>
-						<option>Uruguay</option>
-						<option>Colombie</option>
-					</select>
-				</label>
-
+                
 				<label class="champ" for="bio">
 					Bio
 					<textarea id="bio" name="bio" rows="3" maxlength="150" placeholder="Parle un peu de toi…"></textarea>
