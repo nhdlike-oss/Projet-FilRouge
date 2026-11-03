@@ -457,6 +457,14 @@
     left: 30px;
     z-index: 1;
 }
+.cote .marque h1 {
+    color: var(--blanc);
+}
+
+.coteTexte {
+    position: relative;
+    z-index: 1;
+}
 
 .sousTitre {
     margin: 0 0 25px;
