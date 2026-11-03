@@ -509,11 +509,6 @@ button:hover {
     border: 2px solid rgb(147, 129, 138);
     border-radius: 100px 100px 100px 100px;
 }
-<<<<<<< Updated upstream
-/* ============fin style index et mot de passe oublié ================*/
- 
-=======
->>>>>>> Stashed changes
 
 .pageChat{
     margin:0;
@@ -523,7 +518,7 @@ button:hover {
 
 }
 [hidden]{
-    display: none !important;
+    display: none;
 }
 #page_web{
     display: flex;
