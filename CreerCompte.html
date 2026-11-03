@@ -39,7 +39,9 @@
 			<h2>Créer un compte</h2>
 			<p class="sousTitre">Tu pourras commencer à discuter dès ton inscription.</p>
 
-			<form class="formCompte" action="/inscription" method="post">
+      <p id="messageInscription" role="alert" hidden></p>
+
+			<form class="formCompte" id="formInscription">
 
 				<label class="champ" for="Courriel">
 					Courriel *
@@ -90,7 +92,8 @@
 
 	</main>
 
-	<script src="Conversation.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	<script src="supabase.js"></script>
+  <script src="inscription.js"></script>
 </body>
 </html>
