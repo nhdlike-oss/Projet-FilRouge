@@ -426,24 +426,6 @@
     text-decoration: none;
     font-size: 15px;
 }
-.messageErreur {
-    margin: 0 0 12px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    background-color: #fdecec;
-    color: #9b2222;
-    font-size: 14px;
-    font-weight: bold;
-}
-.messageSucces {
-    margin: 0 0 12px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    background-color: #e8f5ec;
-    color: #1d6b3a;
-    font-size: 14px;
-    font-weight: bold;
-}
 /*============= Fin page d'accueil ============== */
 
 /*============= Pied de page ============== */
@@ -939,12 +921,12 @@ pageChat .auteur {
     color: var(--violet-clair);
 }
 
-#heure {
-     display: block;
-    margin-top: 4px;
-    font-size: 11px;
-    text-align: right;
-    opacity: 0.6;
+
+#messages li .heure {
+  margin-top: 4px;
+  font-size: 11px;
+  text-align: right;
+  opacity: 0.6;
 }
 
 @keyframes apparition {
@@ -1003,4 +985,15 @@ pageChat .auteur {
 
 .pageParametres #bouton-supprimer:hover {
     background: #962d22;
+}
+#notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  max-width: 280px;
+  padding: 14px 18px;
+  border-radius: 15px;
+  background: var(--violet);
+  color: white;
 }

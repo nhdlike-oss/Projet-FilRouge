@@ -8,29 +8,33 @@
       content="width=device-width, initial-scale=1.0">
 	  <link rel="stylesheet" href="Style.css">
 </head>
-<body> 
+<body>  
 	<div id="page_web">	
-	
-	<aside id="barre">
-	
-	<h1>Messagerie</h1>
-	<br>
-   <p>Connecté : <strong id="nom-utilisateur"></strong></p>
+	     <aside id="barre">
+        <div id="profil">
+           <h1>Messagerie</h1>
+	<div id="avatar-utilisateur" class="avatar"></div>
+        <div id="profil-texte">
+          
+           <strong id="nom-utilisateur"></strong>
+          <small><span class="point"></span> En ligne</small>
+        </div>
+<h2>Salons</h2>
 
 	<ul id="liste-conversations"></ul>
 	
   <form id="formulaire-conversation">
-  <input type="text" id="nom-conversation" placeholder="Nouvelle conversation" autocomplete="off" required>
+  <input type="text" id="nom-conversation" placeholder="Nouveau salon" autocomplete="off" required>
   <button type="submit">+</button>
 </form>
  <p id="erreur-conversation" class="erreur"></p>
 
    <nav>	
+     
+      <ul id="liste-en-ligne"></ul>
 
    	<a href="Contact.html">	Mes contacts	</a>
-	<br>
-	<a href="Parametres.html">	Parametre </a>
-</h5>
+
 <br>
  <a href="Profil.html">	Profil </a>
  <p><a href="index.html">← Retour</a></p>
@@ -38,11 +42,19 @@
  </aside>
  
 <main id="zone-chat">
- 
-    <button id="bouton-retour" class="bouton-retour">← Salons</button>
-      <h2 id="titre">Choisis ou crée une conversation</h2>
-	  
-      <ul id="messages"></ul>
+ <header id="entete-chat">
+  <button id="bouton-retour" type="button">←</button>
+    <button id="bouton-parametres" type="button">Paramètres</button>
+  
+        <div id="entete-texte">
+          <h3 id="titre">Choisis ou crée un salon</h3>
+          <p id="sous-titre"></p>
+ </div>
+      </header>
+
+       <ul id="messages"></ul>
+      <p id="indicateur-ecriture" hidden></p>
+
 	  <form id="formulaire" hidden>
         <input type="text" id="champ" placeholder="Écrire un message…" autocomplete="off" required>
         <button type="submit">Envoyer</button>
@@ -52,7 +64,15 @@
 
 
  </div>
+<dialog id="popup-parametres">
+    <h4>Paramètres</h4>
+    <p>Connecté : <strong id="parametres-nom"></strong></p>
+    <button id="bouton-deconnexion" type="button">Se déconnecter</button>
+    <button id="bouton-supprimer" type="button" class="danger">Supprimer son compte</button>
+    <button id="bouton-fermer" type="button" class="clair">Fermer</button>
+  </dialog>
 
+<div id="notification" hidden></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase.js"></script>
 <script src="Conversation.js"></script>
