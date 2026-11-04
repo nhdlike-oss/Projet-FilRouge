@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications - Jase</title>
+  <link rel="stylesheet" href="Style.css">"
+</head>
+<body>
+
+  <div id="page-notif">
+    <header id="entete-notif">
+      <a href="Conversation.html" class="lien-retour">← Retour</a>
+      <h1>Notifications</h1>
+      <button id="bouton-effacer" type="button">Tout effacer</button>
+    </header>
+
+    <ul id="liste-notifications"></ul>
+    <p id="vide" hidden>Aucune notification pour l'instant.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="Notification.js"></script>
+</body>
+</html>

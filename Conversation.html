@@ -1,80 +1,72 @@
-  <!doctype html>
-  <html>
-  
-   <head>
-    <meta charset="utf-8">
-<title>Jase </title>
-<meta name="viewport" 
-      content="width=device-width, initial-scale=1.0">
-	  <link rel="stylesheet" href="Style.css">
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jase</title>
+  <link rel="stylesheet" href="Style.css">"
 </head>
-<body>  
-	<div id="page_web">	
-	     <aside id="barre">
-        <div id="profil">
-           <h1>Messagerie</h1>
-	<div id="avatar-utilisateur" class="avatar"></div>
+<body>
+
+  <div id="page_web">
+
+    <!-- Barre de gauche -->
+    <aside id="barre">
+
+      <div id="profil">
         <div id="profil-texte">
-          
-           <strong id="nom-utilisateur"></strong>
+          <strong id="nom-utilisateur"></strong>
           <small><span class="point"></span> En ligne</small>
         </div>
-<h2>Salons</h2>
+      </div>
 
-	<ul id="liste-conversations"></ul>
-	
-  <form id="formulaire-conversation">
-  <input type="text" id="nom-conversation" placeholder="Nouveau salon" autocomplete="off" required>
-  <button type="submit">+</button>
-</form>
- <p id="erreur-conversation" class="erreur"></p>
+      <h2>Salons</h2>
+      <ul id="liste-conversations"></ul>
 
-   <nav>	
-     <h4>En ligne</h4>
+      <form id="formulaire-conversation">
+        <input type="text" id="nom-conversation" placeholder="Nouveau salon" autocomplete="off" required>
+        <button type="submit">+</button>
+      </form>
+      <p id="erreur-conversation" class="erreur"></p>
+
+      <h2>En ligne</h2>
       <ul id="liste-en-ligne"></ul>
 
-   	<a href="Contact.html">	Mes contacts	</a>
+      <a href="Contact.html" class="lien-barre">Mes contacts</a>
+      <button id="bouton-parametres" type="button">Paramètres</button>
+       <button id="bouton-Notification" type="button">notification</button>
+    </aside>
 
-<br>
- <a href="Profil.html">	Profil </a>
- <p><a href="index.html">← Retour</a></p>
- </nav>
- </aside>
- 
-<main id="zone-chat">
- <header id="entete-chat">
-  <button id="bouton-retour" type="button">←</button>
-    <button id="bouton-parametres" type="button">Paramètres</button>
-  
-        <div id="entete-texte">
-          <h3 id="titre">Choisis ou crée un salon</h3>
-          <p id="sous-titre"></p>
- </div>
+    <!-- Zone de droite -->
+    <main id="zone-chat">
+      <header id="entete-chat">
+        <button id="bouton-retour" type="button">← Retour</button>
+        <h2 id="titre">Choisis ou crée un salon</h2>
       </header>
 
-       <ul id="messages"></ul>
+      <ul id="messages"></ul>
       <p id="indicateur-ecriture" hidden></p>
 
-	  <form id="formulaire" hidden>
+      <form id="formulaire" hidden>
         <input type="text" id="champ" placeholder="Écrire un message…" autocomplete="off" required>
         <button type="submit">Envoyer</button>
       </form>
-	  
     </main>
 
+  </div>
 
- </div>
-<dialog id="popup-parametres">
-    <h4>Paramètres</h4>
+  <div id="notification" hidden></div>
+
+  <dialog id="popup-parametres">
+    <h2>Paramètres</h2>
     <p>Connecté : <strong id="parametres-nom"></strong></p>
     <button id="bouton-deconnexion" type="button">Se déconnecter</button>
-    <button id="bouton-supprimer" type="button" class="danger">Supprimer son compte</button>
+    <button id="bouton-supprimer" type="button" class="danger">Supprimer le compte</button>
     <button id="bouton-fermer" type="button" class="clair">Fermer</button>
   </dialog>
 
-<div id="notification" hidden></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
-<script src="Conversation.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="Conversation.js"></script>
 </body>
 </html>
