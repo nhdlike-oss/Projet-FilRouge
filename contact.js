@@ -36,3 +36,26 @@ function creerLigne(profil, texteBouton, action) {
     li.appendChild(bouton);
     return li;
 } 
+
+// 1. Afficher mes contacts
+async function afficherContacts() {
+    const { data: liens } = await client
+        .from("contacts")
+        .select("contact_id")
+        .eq("user_id", utilisateur.id);
+
+    mesIds = (liens || []).map(function (l) { return l.contact_id; });
+    listeContacts.innerHTML = "";
+
+
+    const { data: profils } = await client
+        .from("profils")
+        .select("id, pseudo, avatar_url")
+        .in("id", mesIds);
+
+    for (const p of (profils || [])) {
+        listeContacts.appendChild(creerLigne(p, "Retirer", function () {
+            retirerContact(p.id);
+        }));
+    }
+}
