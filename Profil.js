@@ -1,7 +1,20 @@
 // Aperçu de la photo de profil choisie
 const champPhoto = document.getElementById("photo");
 const apercu = document.getElementById("apercu");
+const formulaire = document.getElementById("formProfil");
+const message = document.getElementById("messageProfil");
 
+// la personne connectée
+let utilisateur = null;     
+// la photo choisie, pas encore envoyée
+let nouvellePhoto = null;  
+
+
+function afficherMessage(texte, classe) {
+    message.textContent = texte;
+    message.className = classe;
+    message.hidden = false;
+}
 champPhoto.addEventListener("change", function () {
     const fichier = champPhoto.files[0];
     if (!fichier) return;
