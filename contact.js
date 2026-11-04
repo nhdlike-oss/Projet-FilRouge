@@ -65,6 +65,8 @@ async function afficherContacts() {
 }
 // 2. Rechercher un membre par nom d'utilisateur
 champRecherche.addEventListener("input", async function () {
+    if (!utilisateur) return;  
+
     const texte = champRecherche.value.trim();
     listeResultats.innerHTML = "";
     if (texte.length < 2) return;   // au moins 2 lettres
@@ -120,8 +122,7 @@ formInvitation.addEventListener("submit", async function (e) {
     const lien = new URL("index.html", window.location.href).href;
 
     const sujet = "Rejoins-moi sur JaWse !";
-    const texte = "Salut ! Je suis sur JaWse, une messagerie pour jaser, partager et échanger.\n\n Inscris-toi ici : " + lien;
-
+        const texte = "Salut ! Je suis sur JaWse, une messagerie pour jaser, partager et échanger.\n\nInscris-toi ici : " + lien;
     // Sur téléphone : menu de partage (WhatsApp, SMS, Gmail…)
     if (navigator.share) {
         try {
@@ -138,3 +139,17 @@ formInvitation.addEventListener("submit", async function (e) {
         + "?subject=" + encodeURIComponent(sujet)
         + "&body=" + encodeURIComponent(texte);
 });
+
+// Démarrage : il faut être connecté
+async function demarrer() {
+    const { data } = await client.auth.getSession();
+    utilisateur = data.session ? data.session.user : null;
+
+    if (!utilisateur) {
+        window.location.href = "index.html";
+        return;
+    }
+    afficherContacts();
+}
+
+demarrer();
