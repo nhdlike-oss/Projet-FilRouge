@@ -34,7 +34,8 @@
 
       <a href="Contact.html" class="lien-barre">Mes contacts</a>
       <button id="bouton-parametres" type="button">Paramètres</button>
-       <button id="bouton-Notification" type="button">notification</button>
+       <button id="bouton-notifications" type="button">Notifications</button>
+
     </aside>
 
     <!-- Zone de droite -->
@@ -64,6 +65,10 @@
     <button id="bouton-supprimer" type="button" class="danger">Supprimer le compte</button>
     <button id="bouton-fermer" type="button" class="clair">Fermer</button>
   </dialog>
+ <dialog id="popup-notifications">
+  <iframe id="cadre-notifications" title="Notifications"></iframe>
+  <button id="bouton-fermer-notif" type="button" class="clair">Fermer</button>
+</dialog>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase.js"></script>

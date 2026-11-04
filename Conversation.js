@@ -32,6 +32,9 @@ const formMessage = document.getElementById("formulaire");
 const champMessage = document.getElementById("champ");
 const popupParametres = document.getElementById("popup-parametres");
 const bandeau = document.getElementById("notification");
+const popupnotifications = document.getElementById("popup-notifications");
+const cadrenotifications = document.getElementById("liste-notifications");
+const vide = document.getElementById("vide");
 
 
 // ---------- 3. Avatar (rond avec l'initiale) ----------
@@ -253,7 +256,12 @@ function suivreEnLigne() {
 
 
 // ---------- 8. Notifications ----------
+// ---------- 8. Notifications ----------
 
+const popupNotifications = document.getElementById("popup-notifications");
+const cadreNotifications = document.getElementById("cadre-notifications");
+
+// Bandeau en haut à droite
 function afficherNotification(texte) {
   bandeau.textContent = texte;
   bandeau.hidden = false;
@@ -263,15 +271,41 @@ function afficherNotification(texte) {
   }, 4000);
 }
 
+// Garde la notification dans l'historique (100 maximum)
+function enregistrerNotification(texte) {
+  const cle = "notifications-" + utilisateur.id;
+  const liste = JSON.parse(localStorage.getItem(cle)) || [];
+  liste.unshift({ texte: texte, date: new Date().toISOString() });
+  localStorage.setItem(cle, JSON.stringify(liste.slice(0, 100)));
+}
+
+// Ouvre Notification.html dans un pop-up
+function ouvrirNotifications() {
+  cadreNotifications.src = "Notification.html";
+  popupNotifications.showModal();
+}
+
+document.getElementById("bouton-notifications").addEventListener("click", ouvrirNotifications);
+
+bandeau.addEventListener("click", function () {
+  bandeau.hidden = true;
+  ouvrirNotifications();
+});
+
+document.getElementById("bouton-fermer-notif").addEventListener("click", function () {
+  popupNotifications.close();
+  cadreNotifications.src = "about:blank";
+});
+
 // Écoute les messages et les "en train d'écrire" de TOUS les salons
 function suivreNotifications() {
   canalNotif = client.channel("notifications");
 
   // Un message arrive dans un salon
- canalNotif.on("postgres_changes", { event: "INSERT", schema: "public", table: "messages" }, function (payload) {
+  canalNotif.on("postgres_changes", { event: "INSERT", schema: "public", table: "messages" }, function (payload) {
     const m = payload.new;
-    if (m.user_id === utilisateur.id) return;
-    if (salon !== null && salon.id === m.salon_id) return;
+    if (m.user_id === utilisateur.id) return;               // mon propre message
+    if (salon !== null && salon.id === m.salon_id) return;  // je suis déjà dans ce salon
 
     const leSalon = listeDesSalons.find(function (s) { return s.id === m.salon_id; });
     const nomSalon = leSalon ? leSalon.nom : "un salon";
@@ -279,25 +313,17 @@ function suivreNotifications() {
     const texte = (m.auteur || "Quelqu'un") + " a écrit dans # " + nomSalon + " : " + m.contenu;
     afficherNotification(texte);
     enregistrerNotification(texte);
-});
+  });
 
   // Quelqu'un écrit dans un salon où je ne suis pas
   canalNotif.on("broadcast", { event: "ecrit-ailleurs" }, function (message) {
     const infos = message.payload;
-    if (salon !== null && salon.id === infos.salonId) return; // déjà visible dans le chat
+    if (salon !== null && salon.id === infos.salonId) return;
     afficherNotification(infos.nom + " est en train d'écrire dans # " + infos.salonNom);
   });
 
   canalNotif.subscribe();
 }
-// Garde la notification dans l'historique (dans ce navigateur, 20 maximum)
-function enregistrerNotification(texte) {
-  const cle = "notifications-" + utilisateur.id;
-  const liste = JSON.parse(localStorage.getItem(cle)) || [];
-  liste.unshift({ texte: texte, date: new Date().toISOString() });
-  localStorage.setItem(cle, JSON.stringify(liste.slice(0, 20)));
-}
-
 
 // ---------- 9. Les formulaires ----------
 
