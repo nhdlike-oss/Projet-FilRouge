@@ -126,6 +126,10 @@
         max-height: none;
     }
 }
+
+.pageForm .split {
+    min-height: 0;
+}
 /*============= Page d'accueil ============== */
 
 .pageAccueil {
