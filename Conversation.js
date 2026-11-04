@@ -15,7 +15,8 @@ let canalSalon = null;       // écoute en direct du salon ouvert
 let canalEnLigne = null;     // écoute des personnes en ligne
 let canalNotif = null;       // écoute des notifications (tous les salons)
 let derniereFois = 0;        // pour ne pas envoyer "j'écris" trop souvent
-
+let profils = {};            // pseudo et photo de chaque personne (id -> profil)
+let maPhoto = null;          // ma photo de profil
 
 // ---------- 2. Éléments du HTML ----------
 
@@ -51,6 +52,53 @@ function creerAvatar(nomPersonne, petit) {
   return rond;
 }
 
+
+// ----- profils (pseudo + photo) ----------
+ 
+const AVATAR = "image/avatar.png"; // photo par défaut
+ 
+// Va chercher dans la table "profils" les personnes qu'on ne connaît pas encore
+async function chargerProfils(ids) {
+  const manquants = ids.filter(function (id) {
+    return id && !(id in profils);
+  });
+  if (manquants.length === 0) return;
+ 
+  const { data } = await client
+    .from("profils")
+    .select("id, pseudo, avatar_url")
+    .in("id", manquants);
+ 
+  for (const p of (data || [])) profils[p.id] = p;
+ 
+  // Ceux qui n'ont pas encore rempli leur profil
+  for (const id of manquants) {
+    if (!(id in profils)) profils[id] = null;
+  }
+}
+ 
+// Le nom à afficher pour un message : le pseudo, sinon l'ancien texte "auteur"
+function nomDe(m) {
+  const p = profils[m.user_id];
+  if (p && p.pseudo) return p.pseudo;
+  return m.auteur || "Inconnu";
+}
+ 
+// La photo à afficher pour une personne : sa photo, sinon l'avatar par défaut
+function photoDe(userId) {
+  const p = profils[userId];
+  return (p && p.avatar_url) ? p.avatar_url : AVATAR;
+}
+ 
+// Crée la petite image ronde
+function creerPhoto(url, petit) {
+  const img = document.createElement("img");
+  img.className = "photoMessage" + (petit ? " petit" : "");
+  img.src = url || AVATAR;
+  img.alt = "";
+  return img;
+}
+ 
 
 // ---------- 4. Les salons ----------
 
@@ -397,8 +445,13 @@ async function demarrer() {
   }
 
   utilisateur = data.session.user;
-  nom = utilisateur.user_metadata.username || utilisateur.email;
-
+  
+   // mon pseudo et ma photo viennent de la table "profils"
+  await chargerProfils([utilisateur.id]);
+  const monProfil = profils[utilisateur.id];
+  nom = (monProfil && monProfil.pseudo) || utilisateur.user_metadata.username || utilisateur.email;
+  maPhoto = monProfil ? monProfil.avatar_url : null;
+  
   // Profil : seulement le nom
   document.getElementById("nom-utilisateur").textContent = nom;
 
