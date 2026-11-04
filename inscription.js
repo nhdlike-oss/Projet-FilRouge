@@ -10,9 +10,10 @@ formulaire.addEventListener("submit", async function (e) {
     const confirmation = document.getElementById("Confirmer_Mot_de_pass").value;
 
     if (motDePasse !== confirmation) {
-            message.textContent = "* Les deux mots de passe ne sont pas identiques.";
+            message.textContent = "Les deux mots de passe ne sont pas identiques.";
             message.className = "messageErreur";
             message.hidden = false;
+            message.scrollIntoView({ behavior: "smooth", block: "center" });
             return;
         }
 
