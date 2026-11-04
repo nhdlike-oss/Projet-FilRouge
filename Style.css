@@ -102,7 +102,30 @@
     color: var(--gris);
 }
 /*============= Fin en-tête ============== */
+/* ----- Téléphone  */
+@media (max-width: 900px) {
+    .pageAccueil {
+        height: auto;
+        min-height: 100dvh;
+        overflow: visible;
+    }
 
+    .barre {
+        position: static;    
+        padding: 12px 20px 0;
+    }
+
+    .accueil {
+        justify-content: flex-start;
+        padding-top: 10px;
+    }
+
+    .diaporama {
+        flex: none;
+        aspect-ratio: 16 / 9; 
+        max-height: none;
+    }
+}
 /*============= Page d'accueil ============== */
 
 .pageAccueil {
