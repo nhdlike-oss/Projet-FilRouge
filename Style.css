@@ -1283,6 +1283,60 @@ dialog button.danger {
     padding: 0;
     list-style: none;
 }
+
+.personne {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    background-color: var(--blanc);
+    border: 1px solid var(--violetClair);
+}
+
+.photoContact {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.nomContact {
+    flex: 1;
+    min-width: 0;
+    font-weight: bold;
+    color: var(--gris);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.corpsPage .boutonPetit {
+    margin: 0;
+    padding: 6px 14px;
+    font-size: 14px;
+}
+
+.corpsPage .boutonPetit:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.listeContacts .vide {
+    padding: 8px 0;
+    color: var(--gris);
+    font-size: 14px;
+}
+
+.cadre > .champ {
+    max-width: 520px;
+}
+
+.champ input[type="search"] {
+    width: 100%;
+}
+/*============= Fin page Contacts ============== */
 /*============= Photos de profil dans la discussion ============== */
 .photoMessage {
   width: 36px;
