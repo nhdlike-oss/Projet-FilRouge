@@ -15,6 +15,35 @@ function afficherMessage(texte, classe) {
     message.className = classe;
     message.hidden = false;
 }
+async function chargerProfil() {
+    const { data } = await client.auth.getUser();
+    utilisateur = data.user;
+
+    // Pas connectée : retour à l'accueil
+    if (!utilisateur) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    // On cherche son profil dans la table "profils"
+    const { data: profil } = await client
+        .from("profils")
+        .select("pseudo, bio, avatar_url")
+        .eq("id", utilisateur.id)
+        .maybeSingle();
+
+    // S'il existe, on remplit la page
+    if (profil) {
+        document.getElementById("pseudo").value = profil.pseudo || "";
+        document.getElementById("bio").value = profil.bio || "";
+        if (profil.avatar_url) {
+            apercu.src = profil.avatar_url;
+        }
+    }
+}
+
+chargerProfil();
+
 champPhoto.addEventListener("change", function () {
     const fichier = champPhoto.files[0];
     if (!fichier) return;
@@ -33,6 +62,48 @@ champPhoto.addEventListener("change", function () {
         return;
     }
 
-    // Afficher l'aperçu à la place de l'avatar
+    nouvellePhoto = fichier;
     apercu.src = URL.createObjectURL(fichier);
+    message.hidden = true;
+});
+
+// 3. Enregistrer : la photo (si elle a changé), puis le profil
+formulaire.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const donnees = {
+        id: utilisateur.id,
+        pseudo: document.getElementById("pseudo").value.trim(),
+        bio: document.getElementById("bio").value.trim(),
+        updated_at: new Date().toISOString()
+    };
+
+    // Envoyer la photo dans le bucket "avatars"
+    if (nouvellePhoto) {
+        const extension = nouvellePhoto.type.split("/")[1];       
+        const chemin = utilisateur.id + "/avatar." + extension;    
+
+        const { error: erreurPhoto } = await client.storage
+            .from("avatars")
+            .upload(chemin, nouvellePhoto, { upsert: true });
+
+        if (erreurPhoto) {
+            afficherMessage("La photo n'a pas pu être envoyée.", "messageErreur");
+            return;
+        }
+
+        // Le lien de la photo, à garder dans le profil
+        const { data } = client.storage.from("avatars").getPublicUrl(chemin);
+        donnees.avatar_url = data.publicUrl + "?v=" + Date.now();
+    }
+
+    // b) Enregistrer le profil dans la table "profils"
+    const { error } = await client.from("profils").upsert(donnees);
+
+    if (error) {
+        afficherMessage("Le profil n'a pas pu être enregistré.", "messageErreur");
+    } else {
+        nouvellePhoto = null;
+        afficherMessage("Profil enregistré !", "messageSucces");
+    }
 });
