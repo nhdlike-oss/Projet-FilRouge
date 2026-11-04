@@ -113,8 +113,8 @@ async function retirerContact(id) {
     afficherContacts();
 }
 
-// 5. Inviter un ami par courriel
-formInvitation.addEventListener("submit", function (e) {
+// 5. Inviter un ami
+formInvitation.addEventListener("submit", async function (e) {
     e.preventDefault();
     const courriel = document.getElementById("courrielAmi").value.trim();
     const lien = new URL("index.html", window.location.href).href;
@@ -122,21 +122,19 @@ formInvitation.addEventListener("submit", function (e) {
     const sujet = "Rejoins-moi sur JaWse !";
     const texte = "Salut ! Je suis sur JaWse, une messagerie pour jaser, partager et échanger. Inscris-toi ici : " + lien;
 
+    // Sur téléphone : menu de partage (WhatsApp, SMS, Gmail…)
+    if (navigator.share) {
+        try {
+            await navigator.share({ title: sujet, text: texte });
+            return;
+        } catch (erreur) {
+            // la personne a fermé le menu : on ne fait rien
+            return;
+        }
+    }
+
+    // Sur ordinateur : on ouvre le courriel
     window.location.href = "mailto:" + courriel
         + "?subject=" + encodeURIComponent(sujet)
         + "&body=" + encodeURIComponent(texte);
 });
-
-// Démarrage : il faut être connecté
-async function demarrer() {
-    const { data } = await client.auth.getUser();
-    utilisateur = data.user;
-
-    if (!utilisateur) {
-        window.location.href = "index.html";
-        return;
-    }
-    afficherContacts();
-}
-
-demarrer();
