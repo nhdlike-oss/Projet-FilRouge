@@ -28,18 +28,28 @@
 				<span class="fleche" aria-hidden="true">&larr;</span>
 				Retour
 			</a>
+            
+            <h2>Connexion</h2>
+			<p class="sousTitre">Entre ton courriel et ton mot de passe.</p>
+            
+            <p id="erreurConnexion" class="messageErreur" role="alert" hidden></p>
+
             <form class="formCompte" id="formConnexion">
 				<label class="champ" for="contact">
 					Courriel
 					<input type="email" name="contact" id="contact" autocomplete="email" required>
 				</label>
+                <label class="champ" for="pwd">
+					Mot de passe
+					<input type="password" name="password" id="pwd" autocomplete="current-password" required>
+				</label>
+
+				<p class="lienBas" style="text-align: right;"><a href="Mot_de_Pass_Oublie.html">Mot de passe oublié ?</a></p>
 
 				<button type="submit" class="boutonForm">Se connecter</button>
 			</form>
 
-			<h2>Connexion</h2>
-			<p class="sousTitre">Entre ton courriel et ton mot de passe.</p>
-            <p class="lienBas">Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
+			<p class="lienBas">Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
 		
         </section>
             
