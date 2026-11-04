@@ -19,6 +19,8 @@ function creerLigne(profil, texteBouton, action) {
     img.className = "photoContact";
     img.src = profil.avatar_url || AVATAR;
     img.alt = "";
+    img.onerror = function () { img.onerror = null; img.src = AVATAR; };
+
 
     const nom = document.createElement("span");
     nom.className = "nomContact";

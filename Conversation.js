@@ -96,6 +96,7 @@ function creerPhoto(url, petit) {
   img.className = "photoMessage" + (petit ? " petit" : "");
   img.src = url || AVATAR;
   img.alt = "";
+  img.onerror = function () { img.onerror = null; img.src = "image/avatar.png"; };
   return img;
 }
  
