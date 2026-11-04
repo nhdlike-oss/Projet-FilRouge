@@ -12,7 +12,7 @@
 <body class="corpsPage pageForm>
 	<main>
 
-        <!-- Partie gauche : violet -->
+         <!-- Partie gauche : violet -->
 		<section class="cote">
 			<span class="forme forme1" aria-hidden="true"></span>
 			<span class="forme forme2" aria-hidden="true"></span>
@@ -28,6 +28,23 @@
 				<p>Retrouve tes amis sur JaWse, ajoute-les à tes contacts ou invite ceux qui ne sont pas encore inscrits.</p>
 			</div>
 		</section>
+        
+        <!-- Partie droite -->
+		<section class="cadre">
+			<a class="retour" href="Conversation.html">
+				<span class="fleche" aria-hidden="true">&larr;</span>
+				Retour
+			</a>
+
+			<h2>Mes contacts</h2>
+
+			<!-- 1. Recherche -->
+			<label class="champ" for="recherche">
+				Rechercher un membre
+				<input type="search" id="recherche" placeholder="Nom d'utilisateur…" autocomplete="off">
+			</label>
+			<ul id="resultats" class="listeContacts"></ul>
+
         <form id="formulaire">
             <input type="text" id="champ" placeholder="chercher nom" autocomplete="off" required>
             
