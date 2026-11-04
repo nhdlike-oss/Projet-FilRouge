@@ -780,6 +780,7 @@ button:hover {
     background-color: var(--violetClair);
     cursor: not-allowed;
 }
+<<<<<<< Updated upstream
 
 .corpsPage .boutonSupprimer {
     margin: 0;
@@ -853,6 +854,151 @@ body.corpsPage:not(.pageAccueil) {
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+=======
+
+.corpsPage .boutonSupprimer {
+    margin: 0;
+    padding: 8px 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #9b2222;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+}
+
+.corpsPage .boutonSupprimer:hover {
+    background: transparent;
+    color: #6e1515;
+}
+/*============= Fin page Profil ============== */
+/* Les messages ont la même largeur que le formulaire */
+.cadre .messageErreur,
+.cadre .messageSucces {
+    max-width: 520px;
+    box-sizing: border-box;
+}
+
+/* Tablette et téléphone : on centre le contenu */
+@media (max-width: 800px) {
+    .cadre {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cadre > * {
+        width: 100%;
+        max-width: 520px;
+    }
+
+    .retour {
+        width: auto;
+        align-self: flex-start;
+    }
+}
+
+/* Petits téléphones : photo plus petite, boutons en dessous si besoin */
+@media (max-width: 360px) {
+    .photoProfil {
+        flex-wrap: wrap;
+    }
+
+    .avatar {
+        width: 90px;
+        height: 90px;
+    }
+}
+.pageChat{
+    margin:0;
+    font-family: Arial,  sans-serif;
+    background:hsl(332, 56%, 92%);
+    color: var(--violet)
+
+}
+[hidden]{
+    display: none;
+}
+#page_web{
+    display: flex;
+   height: 100vh;
+    height: 100dvh;
+}
+#barre{
+   width: 290px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 18px;
+    background: var(--violet);
+    color: white;
+    text-align: left;
+    overflow-y: auto;
+}
+#barre h1{
+    font-size: 22px;
+    color: #b94c77;
+    margin: 0 0 10px;
+
+}
+#barre a {
+     color: #b94c77;
+    font-size: 14px;
+}
+.pageChat #liste-conversation{
+     list-style: none;
+    padding: 0;
+    margin:0 0 14px
+}
+#liste-conversation li{
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 14px;
+    margin-bottom: 4px;
+    border-left: 3px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+#liste-conversations li:hover {
+    background: #f5d6e4;
+    transform: translateX(4px);}
+
+    #liste-conversations li.active{
+         background: rgba(255, 255, 255, 0.18);
+    border-left-color: var(--rose);
+    }
+    #formulaire-conversation{
+          display: flex;
+    gap: 6px;
+    margin: 0;
+    }
+    nom-conversation{
+      flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    }
+ #formulaire-conversation button {
+    margin: 0;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 20px;
+    background: var(--lavande);
+    color: var(--violet);
+    font-weight: bold;
+    transition: transform 0.15s;
+ }
+.erreur {
+    color: #bd2818;
+    font-size: 15px;
+>>>>>>> Stashed changes
 
 body {
   margin: 0;
