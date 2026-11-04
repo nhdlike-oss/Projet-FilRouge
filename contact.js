@@ -63,3 +63,34 @@ async function afficherContacts() {
         }));
     }
 }
+// 2. Rechercher un membre par nom d'utilisateur
+champRecherche.addEventListener("input", async function () {
+    const texte = champRecherche.value.trim();
+    listeResultats.innerHTML = "";
+    if (texte.length < 2) return;   // au moins 2 lettres
+
+    const { data } = await client
+        .from("profils")
+        .select("id, pseudo, avatar_url")
+        .ilike("pseudo", "%" + texte + "%")
+        .neq("id", utilisateur.id)  // pas moi-même
+        .limit(10);
+
+    if (!data || data.length === 0) {
+        listeResultats.innerHTML = "<li class='vide'>Aucun membre trouvé.</li>";
+        return;
+    }
+
+    for (const p of data) {
+        if (mesIds.includes(p.id)) {
+            const li = creerLigne(p, "Ajouté", function () {});
+            li.querySelector("button").disabled = true;
+            listeResultats.appendChild(li);
+        } else {
+            listeResultats.appendChild(creerLigne(p, "+ Ajouter", function () {
+                ajouterContact(p.id);
+            }));
+        }
+    }
+});
+
