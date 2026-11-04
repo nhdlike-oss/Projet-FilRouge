@@ -102,30 +102,6 @@
     color: var(--gris);
 }
 /*============= Fin en-tête ============== */
-/* ----- Téléphone  */
-@media (max-width: 900px) {
-    .pageAccueil {
-        height: auto;
-        min-height: 100dvh;
-        overflow: visible;
-    }
-
-    .barre {
-        position: static;    
-        padding: 12px 20px 0;
-    }
-
-    .accueil {
-        justify-content: flex-start;
-        padding-top: 10px;
-    }
-
-    .diaporama {
-        flex: none;
-        aspect-ratio: 16 / 9; 
-        max-height: none;
-    }
-}
 
 .pageForm .split {
     min-height: 0;
@@ -433,7 +409,30 @@
     font-size: 15px;
 }
 /*============= Fin page d'accueil ============== */
+/* ----- Téléphone  */
+@media (max-width: 900px) {
+    .pageAccueil {
+        height: auto;
+        min-height: 100dvh;
+        overflow: visible;
+    }
 
+    .barre {
+        position: static;    
+        padding: 12px 20px 0;
+    }
+
+    .accueil {
+        justify-content: flex-start;
+        padding-top: 10px;
+    }
+
+    .diaporama {
+        flex: none;
+        aspect-ratio: 16 / 9; 
+        max-height: none;
+    }
+}
 /*============= Pied de page ============== */
 .piedPage {
     margin-top: auto;
@@ -441,6 +440,7 @@
     font-size: 13px;
     background-color: var(--lavande);
     color: var(--violet);
+    text-align: center;
 }
 
 .piedLiens {
