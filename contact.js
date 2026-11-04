@@ -24,4 +24,15 @@ function creerLigne(profil, texteBouton, action) {
     nom.className = "nomContact";
     nom.textContent = profil.pseudo || "Sans nom";
 
-    
+   
+    const bouton = document.createElement("button");
+    bouton.type = "button";
+    bouton.className = "boutonPetit";
+    bouton.textContent = texteBouton;
+    bouton.addEventListener("click", action);
+
+    li.appendChild(img);
+    li.appendChild(nom);
+    li.appendChild(bouton);
+    return li;
+} 
