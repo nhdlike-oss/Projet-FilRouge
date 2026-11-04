@@ -47,6 +47,10 @@ async function afficherContacts() {
     mesIds = (liens || []).map(function (l) { return l.contact_id; });
     listeContacts.innerHTML = "";
 
+    if (mesIds.length === 0) {
+        listeContacts.innerHTML = "<li class='vide'>Tu n'as pas encore de contacts.</li>";
+        return;
+    }
 
     const { data: profils } = await client
         .from("profils")
