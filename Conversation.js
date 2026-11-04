@@ -12,7 +12,7 @@ let salon = null;          // le salon ouvert
 let canalSalon = null;     // l'écoute en direct du salon
 let canalEnLigne = null;   // l'écoute des personnes en ligne
 let derniereFois = 0;      // pour ne pas envoyer "j'écris" trop souvent
-
+let listeDesSalons = [];   // tous les salons (pour retrouver un nom grâce à l'id)
 
 // ---------- 2. Éléments du HTML ----------
 
@@ -42,6 +42,7 @@ async function chargerSalons() {
     console.log("Erreur salons :", error);
     return;
   }
+    listeDesSalons = data;   // on garde la liste pour les notifications
 
   listeSalons.innerHTML = "";
   for (const s of data) {
@@ -304,13 +305,20 @@ async function demarrer() {
   chargerSalons();
   suivreEnLigne();
 
-   client
+    client
     .channel("notifications")
     .on("postgres_changes", { event: "INSERT", schema: "public", table: "messages" }, function (payload) {
       const m = payload.new;
       if (m.user_id === utilisateur.id) return;               // mon propre message
       if (salon !== null && salon.id === m.salon_id) return;  // je suis déjà dans ce salon
-      afficherNotification((m.auteur || "Quelqu'un") + " a écrit : " + m.contenu);
+
+      // On cherche le nom du salon grâce à son id
+      const leSalon = listeDesSalons.find(function (s) {
+        return s.id === m.salon_id;
+      });
+      const nomSalon = leSalon ? leSalon.nom : "un salon";
+
+      afficherNotification((m.auteur || "Quelqu'un") + " a écrit dans # " + nomSalon + " : " + m.contenu);
     })
     .subscribe();
   // Quand quelqu'un crée un salon, on recharge la liste
