@@ -45,23 +45,26 @@
 			</label>
 			<ul id="resultats" class="listeContacts"></ul>
 
+            <!-- 2. Mes contacts -->
+			<h3 class="titreSection">Ma liste</h3>
+			<ul id="mesContacts" class="listeContacts"></ul>
 
-            
-        <form id="formulaire">
-            <input type="text" id="champ" placeholder="chercher nom" autocomplete="off" required>
-            
-        </form>
-        <p>  <button type="submit">Recherche</button></p>
+			<!-- 3. Inviter -->
+			<h3 class="titreSection">Inviter un ami</h3>
+			<form class="formCompte" id="formInvitation">
+				<label class="champ" for="courrielAmi">
+					Courriel de ton ami
+					<input type="email" id="courrielAmi" placeholder="ami@exemple.com" required>
+				</label>
+				<button type="submit" class="boutonForm">Envoyer l'invitation</button>
+			</form>
+		</section>
 
-        <ul id="JaWseNo"> 
-            
-        </ul>
-        <p>  <button type="submit">Inviter</button></p>
-        <h2>    
-            <a href="Conversation.html">Conversation</a>
-        </h2>
-        <br>
-        <h3>
-            
-        </h3>
+    
     </main>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="supabase.js"></script>
+	<script src="contact.js"></script>
+</body>
+</html>
