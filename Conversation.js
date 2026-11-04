@@ -188,7 +188,7 @@ function afficherMessage(m) {
 
   if (estMoi) li.className = "moi";
 
-  li.appendChild(creerAvatar(nomAffiche, false));
+    li.appendChild(creerPhoto(photoDe(m.user_id), false));
 
   const contenu = document.createElement("div");
   contenu.className = "contenu";
