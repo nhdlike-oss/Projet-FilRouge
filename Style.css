@@ -1270,7 +1270,19 @@ dialog button.danger {
 #barre .lienProfil:hover {
     text-decoration: underline;
 }
+/*============= Page Contacts ============== */
+.titreSection {
+    margin: 25px 0 10px;
+    font-size: 18px;
+    color: var(--violet);
+}
 
+.listeContacts {
+    max-width: 520px;
+    margin: 0 0 10px;
+    padding: 0;
+    list-style: none;
+}
 /*============= Photos de profil dans la discussion ============== */
 .photoMessage {
   width: 36px;
