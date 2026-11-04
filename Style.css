@@ -1270,3 +1270,40 @@ dialog button.danger {
 #barre .lienProfil:hover {
     text-decoration: underline;
 }
+
+/*============= Photos de profil dans la discussion ============== */
+.photoMessage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--blanc);
+  box-shadow: 0 1px 4px var(--violetClair);
+}
+
+.photoMessage.petit {
+  width: 24px;
+  height: 24px;
+  border-width: 1px;
+}
+
+/* Espace entre la photo et la bulle */
+#messages li {
+  gap: 10px;
+  align-items: flex-end;
+}
+
+/* Mes messages : la photo passe à droite de la bulle */
+#messages li.moi {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+/* Liste « En ligne » : photo + nom sur la même ligne */
+#liste-en-ligne li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/*============= Fin photos discussion ============== */
