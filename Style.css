@@ -64,7 +64,6 @@
 }
 
 .marque h1,
-.vitrine h2,
 .presentation h2 {
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
@@ -204,32 +203,7 @@
     .diapo:first-child { opacity: 1; }
 }
 
-.atouts {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-}
 
-.atouts li {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 12px;
-    border-radius: 15px;
-    background-color: var(--blanc);
-    border: 1px solid var(--violetClair);
-    color: var(--gris);
-    font-size: 13px;
-    line-height: 1.4;
-}
-
-.atouts strong {
-    color: var(--violet);
-    font-size: 15px;
-}
 
 /* ----- Connexion (à droite) de la page d'acceuil(index)----- */
 .connexion {
@@ -377,37 +351,6 @@
     }
 }
 
-.vitrine {
-    background-color: var(--blanc);
-    border: 2px solid var(--lavande);
-    border-radius: 40px;
-    max-width: 380px;
-    margin: 40px auto;
-    padding: 0 20px 20px;
-}
-
-.vitrine h2 {
-    font-size: 20px;
-}
-
-.formulaire label {
-    display: block;
-    margin: 0 auto;
-    text-align: left;
-    font-size: 12px;
-}
-
-.formulaire label,
-.formulaire input[type="text"],
-.formulaire input[type="password"] {
-    width: 200px;
-}
-
-.connexionAcces a {
-    color: var(--blanc);
-    text-decoration: none;
-    font-size: 15px;
-}
 /*============= Fin page d'accueil ============== */
 /* ----- Téléphone  */
 @media (max-width: 900px) {
