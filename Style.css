@@ -798,11 +798,59 @@ button:hover {
     color: #6e1515;
 }
  
-.cadre .messageErreur,
-.cadre .messageSucces {
+/*============= Messages succès / erreur ============== */
+.corpsPage .messageSucces,
+.corpsPage .messageErreur {
     max-width: 520px;
     box-sizing: border-box;
+    margin: 16px 0;
+    padding: 14px 16px 14px 48px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    position: relative;
 }
+
+/* Succès : vert */
+.corpsPage .messageSucces {
+    background: #e7f6ec;
+    color: #1e6b3a;
+    border: 2px solid #3fa463;
+}
+
+/* Erreur : rouge */
+.corpsPage .messageErreur {
+    background: #fdecec;
+    color: #a12626;
+    border: 2px solid #d64545;
+}
+
+/* Petite icône ronde à gauche */
+.corpsPage .messageSucces::before,
+.corpsPage .messageErreur::before {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: var(--blanc);
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.corpsPage .messageSucces::before {
+    content: "✓";
+    background: #3fa463;
+}
+
+.corpsPage .messageErreur::before {
+    content: "!";
+    background: #d64545;
+}
+/*============= Fin messages ============== */
  
 /* Tablette et téléphone : on centre le contenu des pages formulaire */
 @media (max-width: 800px) {
