@@ -173,6 +173,8 @@ async function chargerMessages() {
     console.log("Erreur messages :", error.message);
     return;
   }
+   // On charge les profils des auteurs avant d'afficher
+  await chargerProfils(data.map(function (m) { return m.user_id; }));
 
   listeMessages.innerHTML = "";
   data.reverse(); // du plus ancien au plus récent
@@ -181,9 +183,9 @@ async function chargerMessages() {
 
 function afficherMessage(m) {
   const estMoi = m.user_id === utilisateur.id;
-  const nomAffiche = estMoi ? nom : (m.auteur || "Inconnu");
-
+  const nomAffiche = estMoi ? nom : nomDe(m);
   const li = document.createElement("li");
+
   if (estMoi) li.className = "moi";
 
   li.appendChild(creerAvatar(nomAffiche, false));
@@ -234,7 +236,8 @@ function ecouterSalon() {
   canalSalon.on(
     "postgres_changes",
     { event: "INSERT", schema: "public", table: "messages", filter: "salon_id=eq." + salon.id },
-    function (payload) {
+    async function (payload) {
+      await chargerProfils([payload.new.user_id]);   // profil de l'auteur
       afficherMessage(payload.new);
       texteEcriture.hidden = true;
     }
@@ -289,7 +292,7 @@ function suivreEnLigne() {
 
       const nomPersonne = etat[cle][0].nom;
       const li = document.createElement("li");
-      li.appendChild(creerAvatar(nomPersonne, true));
+      li.appendChild(creerPhoto(etat[cle][0].photo, true));
       li.appendChild(document.createTextNode(nomPersonne));
       listeEnLigne.appendChild(li);
     }
@@ -297,7 +300,7 @@ function suivreEnLigne() {
 
   canalEnLigne.subscribe(function (statut) {
     if (statut === "SUBSCRIBED") {
-      canalEnLigne.track({ nom: nom }); // "je suis en ligne"
+      canalEnLigne.track({ nom: nom, photo: maPhoto }) // "je suis en ligne et photo de profil"
     }
   });
 }
