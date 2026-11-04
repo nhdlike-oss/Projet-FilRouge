@@ -3,6 +3,8 @@ const champPhoto = document.getElementById("photo");
 const apercu = document.getElementById("apercu");
 const formulaire = document.getElementById("formProfil");
 const message = document.getElementById("messageProfil");
+const boutonSupprimer = document.getElementById("supprimerPhoto");
+const AVATAR = "image/avatar.png";
 
 // la personne connectée
 let utilisateur = null;     
@@ -14,6 +16,19 @@ function afficherMessage(texte, classe) {
     message.textContent = texte;
     message.className = classe;
     message.hidden = false;
+}
+// Supprimer toutes les photos de l'utilisateur dans le storage
+async function supprimerAnciennesPhotos() {
+    const { data: fichiers } = await client.storage
+        .from("avatars")
+        .list(utilisateur.id);
+
+    if (fichiers && fichiers.length > 0) {
+        const chemins = fichiers.map(function (fichier) {
+            return utilisateur.id + "/" + fichier.name;
+        });
+        await client.storage.from("avatars").remove(chemins);
+    }
 }
 async function chargerProfil() {
     const { data } = await client.auth.getUser();
@@ -38,6 +53,8 @@ async function chargerProfil() {
         document.getElementById("bio").value = profil.bio || "";
         if (profil.avatar_url) {
             apercu.src = profil.avatar_url;
+            boutonSupprimer.hidden = false;   
+        
         }
     }
 }
@@ -80,12 +97,13 @@ formulaire.addEventListener("submit", async function (e) {
 
     // Envoyer la photo dans le bucket "avatars"
     if (nouvellePhoto) {
-        const extension = nouvellePhoto.type.split("/")[1];       
-        const chemin = utilisateur.id + "/avatar." + extension;    
+        await supprimerAnciennesPhotos();
 
+        const extension = nouvellePhoto.type.split("/")[1];       
+                const chemin = utilisateur.id + "/avatar-" + Date.now() + "." + extension;
         const { error: erreurPhoto } = await client.storage
             .from("avatars")
-            .upload(chemin, nouvellePhoto, { upsert: true });
+            .upload(chemin, nouvellePhoto);
 
         if (erreurPhoto) {
             afficherMessage("La photo n'a pas pu être envoyée.", "messageErreur");
@@ -94,7 +112,7 @@ formulaire.addEventListener("submit", async function (e) {
 
         // Le lien de la photo, à garder dans le profil
         const { data } = client.storage.from("avatars").getPublicUrl(chemin);
-        donnees.avatar_url = data.publicUrl + "?v=" + Date.now();
+        donnees.avatar_url = data.publicUrl;
     }
 
     // b) Enregistrer le profil dans la table "profils"
@@ -102,8 +120,38 @@ formulaire.addEventListener("submit", async function (e) {
 
     if (error) {
         afficherMessage("Le profil n'a pas pu être enregistré.", "messageErreur");
-    } else {
-        nouvellePhoto = null;
-        afficherMessage("Profil enregistré !", "messageSucces");
+        return;
     }
+
+    if (nouvellePhoto) {
+        boutonSupprimer.hidden = false;
+    }
+    nouvellePhoto = null;
+    champPhoto.value = "";
+    afficherMessage("Profil enregistré !", "messageSucces");
+});
+    // 4. Supprimer la photo : retour à l'avatar par défaut
+boutonSupprimer.addEventListener("click", async function () {
+    if (!confirm("Supprimer ta photo de profil ?")) return;
+
+    //On efface les fichiers dans le bucket
+    await supprimerAnciennesPhotos();
+
+    // vide le lien dans le profil
+    const { error } = await client
+        .from("profils")
+        .update({ avatar_url: null, updated_at: new Date().toISOString() })
+        .eq("id", utilisateur.id);
+
+    if (error) {
+        afficherMessage("La photo n'a pas pu être supprimée.", "messageErreur");
+        return;
+    }
+
+    // Remettre l'avatar par défaut
+    apercu.src = AVATAR;
+    nouvellePhoto = null;
+    champPhoto.value = "";
+    boutonSupprimer.hidden = true;
+    afficherMessage("Photo supprimée.", "messageSucces");
 });
