@@ -37,6 +37,8 @@
 
 			<h2>Mon profil</h2>
 
+            <p id="messageProfil" role="alert" hidden></p>
+
 			<form class="formCompte" id="formProfil">
 
 				<!-- Photo de profil -->
@@ -52,7 +54,7 @@
 					Nom d'utilisateur *
 					<input type="text" id="pseudo" name="pseudo" maxlength="30" required>
 				</label>
-                
+
 				<label class="champ" for="bio">
 					Bio
 					<textarea id="bio" name="bio" rows="3" maxlength="150" placeholder="Parle un peu de toi…"></textarea>
@@ -62,6 +64,8 @@
 			</form>
 		</section>
     </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase.js"></script>
 	<script src="Profil.js"></script>
 </body>
