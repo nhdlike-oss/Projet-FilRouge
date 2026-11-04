@@ -167,16 +167,6 @@
     overflow: hidden;
     background-color: var(--violetClair);
 }
-
-.diaporama {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    max-height: 38vh;
-    max-width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
-    background-color: var(--violetClair);
-}
 .diapo {
     position: absolute;
     top: 0;
@@ -332,6 +322,7 @@
         flex-direction: column;
         justify-content: space-between;
         gap: 15px;
+        padding-top: 80px;
     }
 
     .presentation {
@@ -353,21 +344,9 @@
 
     .connexion {
         display: none;
-        width: 100%;
-        max-width: none;
-        overflow-y: auto;
     }
 
     /* Le formulaire s'affiche quand on touche « Se connecter » */
-    .connexion:target {
-        display: block;
-    }
-
-    .connexion:target ~ .connexionMobile,
-    .accueil:has(.connexion:target) .presentation {
-        display: none;
-    }
-
     .connexionMobile {
         display: flex;
         flex-direction: column;
@@ -375,7 +354,7 @@
         gap: 12px;
         width: 100%;
     }
-
+    
     .connexionMobile .bouton {
         display: block;
         width: 100%;
@@ -644,7 +623,7 @@
 /* ----- Téléphone ----- */
 @media (max-width: 800px) {
     .split {
-        flex-direction: column;
+    flex-direction: column;
     }
 
     .cote {
@@ -773,6 +752,75 @@ button:hover {
 .champ input[readonly] {
     background-color: var(--violetClair);
     cursor: not-allowed;
+}
+
+.corpsPage .boutonSupprimer {
+    margin: 0;
+    padding: 8px 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #9b2222;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: left;
+}
+ 
+.corpsPage .boutonSupprimer:hover {
+    background: transparent;
+    color: #6e1515;
+}
+ 
+.cadre .messageErreur,
+.cadre .messageSucces {
+    max-width: 520px;
+    box-sizing: border-box;
+}
+ 
+/* Tablette et téléphone : on centre le contenu des pages formulaire */
+@media (max-width: 800px) {
+    .cadre {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .cadre > * {
+        width: 100%;
+        max-width: 520px;
+    }
+ 
+    .retour {
+        width: auto;
+        align-self: flex-start;
+    }
+}
+ 
+/* Petits téléphones : photo plus petite */
+@media (max-width: 360px) {
+    .photoProfil {
+        flex-wrap: wrap;
+    }
+ 
+    .photoProfil .avatar {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+html:has(.corpsPage) {
+    height: auto;
+    overflow: auto;
+    background: var(--lavande);
+}
+ 
+body.corpsPage:not(.pageAccueil) {
+    height: auto;
+    overflow: auto;
+}
+ 
+.photoProfil .avatar {
+    display: block !important;
 }
 /*============= Fin page Profil ============== */
 
@@ -1181,3 +1229,17 @@ dialog button.danger {
 }
 
 
+#barre .lienProfil {
+    display: block;
+    margin-top: 12px;
+    padding: 0;
+    color: var(--blanc);
+    font: inherit;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+}
+
+#barre .lienProfil:hover {
+    text-decoration: underline;
+}
