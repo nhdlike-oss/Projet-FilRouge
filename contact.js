@@ -10,3 +10,18 @@ const AVATAR = "image/avatar.png";
 
 let utilisateur = null;   // la personne connectée
 let mesIds = [];          // les id de mes contacts
+
+function creerLigne(profil, texteBouton, action) {
+    const li = document.createElement("li");
+    li.className = "personne";
+
+    const img = document.createElement("img");
+    img.className = "photoContact";
+    img.src = profil.avatar_url || AVATAR;
+    img.alt = "";
+
+    const nom = document.createElement("span");
+    nom.className = "nomContact";
+    nom.textContent = profil.pseudo || "Sans nom";
+
+    
