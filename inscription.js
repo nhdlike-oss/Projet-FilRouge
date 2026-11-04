@@ -45,6 +45,9 @@ formulaire.addEventListener("submit", async function (e) {
             message.textContent = "Compte créé ! Ouvre le courriel reçu pour confirmer ton inscription, puis connecte-toi.";
             message.className = "messageSucces";
             message.hidden = false;
-            formulaire.reset();
+            
+             // On cache le formulaire et on montre bien le message
+        formulaire.hidden = true;
+        message.scrollIntoView({ behavior: "smooth", block: "center" });
         }
     });
