@@ -17,10 +17,7 @@ function afficherMessage(texte, classe) {
     message.className = classe;
     message.hidden = false;
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 // Supprimer toutes les photos de l'utilisateur dans le storage
 async function supprimerAnciennesPhotos() {
     const { data: fichiers } = await client.storage
@@ -34,10 +31,7 @@ async function supprimerAnciennesPhotos() {
         await client.storage.from("avatars").remove(chemins);
     }
 }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 async function chargerProfil() {
     const { data } = await client.auth.getUser();
     utilisateur = data.user;
@@ -61,12 +55,7 @@ async function chargerProfil() {
         document.getElementById("bio").value = profil.bio || "";
         if (profil.avatar_url) {
             apercu.src = profil.avatar_url;
-<<<<<<< Updated upstream
             boutonSupprimer.hidden = false;   
-        
-=======
-            boutonSupprimer.hidden = false;
->>>>>>> Stashed changes
         }
     }
 }
@@ -110,15 +99,10 @@ formulaire.addEventListener("submit", async function (e) {
     // Envoyer la photo dans le bucket "avatars"
     if (nouvellePhoto) {
         await supprimerAnciennesPhotos();
-<<<<<<< Updated upstream
-=======
 
         const extension = nouvellePhoto.type.split("/")[1];
         const chemin = utilisateur.id + "/avatar-" + Date.now() + "." + extension;
->>>>>>> Stashed changes
-
-        const extension = nouvellePhoto.type.split("/")[1];       
-                const chemin = utilisateur.id + "/avatar-" + Date.now() + "." + extension;
+        
         const { error: erreurPhoto } = await client.storage
             .from("avatars")
             .upload(chemin, nouvellePhoto);
@@ -148,7 +132,7 @@ formulaire.addEventListener("submit", async function (e) {
     champPhoto.value = "";
     afficherMessage("Profil enregistré !", "messageSucces");
 });
-<<<<<<< Updated upstream
+
     // 4. Supprimer la photo : retour à l'avatar par défaut
 boutonSupprimer.addEventListener("click", async function () {
     if (!confirm("Supprimer ta photo de profil ?")) return;
@@ -157,17 +141,6 @@ boutonSupprimer.addEventListener("click", async function () {
     await supprimerAnciennesPhotos();
 
     // vide le lien dans le profil
-=======
-
-// 4. Supprimer la photo : retour à l'avatar par défaut
-boutonSupprimer.addEventListener("click", async function () {
-    if (!confirm("Supprimer ta photo de profil ?")) return;
-
-    // On efface les fichiers dans le bucket
-    await supprimerAnciennesPhotos();
-
-    // On vide le lien dans le profil
->>>>>>> Stashed changes
     const { error } = await client
         .from("profils")
         .update({ avatar_url: null, updated_at: new Date().toISOString() })

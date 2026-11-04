@@ -780,7 +780,6 @@ button:hover {
     background-color: var(--violetClair);
     cursor: not-allowed;
 }
-<<<<<<< Updated upstream
 
 .corpsPage .boutonSupprimer {
     margin: 0;
@@ -854,7 +853,6 @@ body.corpsPage:not(.pageAccueil) {
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-=======
 
 .corpsPage .boutonSupprimer {
     margin: 0;
@@ -998,7 +996,7 @@ body.corpsPage:not(.pageAccueil) {
 .erreur {
     color: #bd2818;
     font-size: 15px;
->>>>>>> Stashed changes
+}
 
 body {
   margin: 0;
