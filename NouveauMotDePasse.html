@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Nouveau mot de passe JaWse">
+	<link rel="icon" type="image/png" href="image/logo.png" sizes="32x32">
+	<link rel="stylesheet" href="Style.css">
+	<title>JaWse - Nouveau mot de passe</title>
+</head>
+<body class="corpsPage pageForm">
+
+	<main class="split">
+
+		<!-- Partie gauche -->
+		<section class="cote">
+			<span class="forme forme1" aria-hidden="true"></span>
+			<span class="forme forme2" aria-hidden="true"></span>
+			<span class="forme forme3" aria-hidden="true"></span>
+
+			<a class="marque" href="index.html">
+				<img class="logo" src="image/logo.png" alt="">
+				<h1>JaWse</h1>
+			</a>
+		</section>
+
+		<!-- Formulaire -->
+		<section class="cadre">
+			<h2>Nouveau mot de passe</h2>
+			<p class="sousTitre">Choisis ton nouveau mot de passe.</p>
+
+			<p id="messageNouveau" role="alert" hidden></p>
+
+			<form class="formCompte" id="formNouveau">
+				<label class="champ" for="pwd">
+					Nouveau mot de passe *
+					<input type="password" id="pwd" name="password" autocomplete="new-password" minlength="8" required>
+					<small class="aide">Au moins 8 caractères, avec un chiffre, une majuscule et un caractère spécial.</small>
+				</label>
+
+				<label class="champ" for="pwdConfirm">
+					Confirme ton mot de passe *
+					<input type="password" id="pwdConfirm" name="passwordConfirm" autocomplete="new-password" minlength="8" required>
+				</label>
+
+				<button type="submit" class="boutonForm">Enregistrer</button>
+			</form>
+		</section>
+
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="supabase.js"></script>
+	<script src="nouveaumotdepasse.js"></script>
+</body>
+</html>

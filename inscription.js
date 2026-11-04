@@ -10,7 +10,7 @@ formulaire.addEventListener("submit", async function (e) {
     const confirmation = document.getElementById("Confirmer_Mot_de_pass").value;
 
     if (motDePasse !== confirmation) {
-            message.textContent = "Les deux mots de passe ne sont pas identiques.";
+            message.textContent = "* Les deux mots de passe ne sont pas identiques.";
             message.className = "messageErreur";
             message.hidden = false;
             return;
@@ -26,5 +26,25 @@ formulaire.addEventListener("submit", async function (e) {
                 age: document.getElementById("Age").value,
                 pays: document.getElementById("pays").value
             }
+        }
+    });
+
+       
+    if (error) {
+        message.textContent = "Erreur : " + error.message;
+        message.className = "messageErreur";
+        message.hidden = false;
+        return;
+    }
+    if (data.session) {
+
+            // Pour connecter la personne directement à la page messagerie
+            window.location.href = "Conversation.html";
+        } else {
+            // Supabase demande de confirmer le courriel d'abord
+            message.textContent = "Compte créé ! Ouvre le courriel reçu pour confirmer ton inscription, puis connecte-toi.";
+            message.className = "messageSucces";
+            message.hidden = false;
+            formulaire.reset();
         }
     });

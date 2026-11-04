@@ -426,6 +426,24 @@
     text-decoration: none;
     font-size: 15px;
 }
+.messageErreur {
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #fdecec;
+    color: #9b2222;
+    font-size: 14px;
+    font-weight: bold;
+}
+.messageSucces {
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #e8f5ec;
+    color: #1d6b3a;
+    font-size: 14px;
+    font-weight: bold;
+}
 /*============= Fin page d'accueil ============== */
 
 /*============= Pied de page ============== */

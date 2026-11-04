@@ -32,27 +32,18 @@
 			</a>
 
 			<h2>Mot de passe oublié</h2>
-			<p class="sousTitre">Entre ton email ou ton numéro, puis choisis un nouveau mot de passe.</p>
+			<p class="sousTitre">Entre ton courriel : on t'envoie un lien pour choisir un nouveau mot de passe.</p>
+			
+			<p id="messageOubli" role="alert" hidden></p>
 
-			<form class="formCompte">
+			<form class="formCompte" id="formOubli">
 
 				<label class="champ" for="contact">
-					Email ou numéro de téléphone *
-					<input type="text" id="contact" name="contact" autocomplete="username" required>
+					Email *
+					<input type="email" id="contact" name="contact" autocomplete="username" required>
 				</label>
 
-				<label class="champ" for="pwd">
-					Nouveau mot de passe *
-					<input type="password" id="pwd" name="password" autocomplete="new-password" minlength="8" required>
-					<small class="aide">Au moins 8 caractères, avec un chiffre, une majuscule et un caractère spécial.</small>
-				</label>
-
-				<label class="champ" for="pwdConfirm">
-					Confirme votre mot de passe *
-					<input type="password" id="pwdConfirm" name="passwordConfirm" autocomplete="new-password" minlength="8" required>
-				</label>
-
-				<button type="submit" class="boutonForm">Enregistrer</button>
+				<button type="submit" class="boutonForm">Envoyer le lien</button>
 			</form>
 
 			<p class="lienBas">Tu t'en souviens ? <a href="index.html#connexion">Se connecter</a></p>
@@ -60,7 +51,8 @@
 
 	</main>
 
-	<script src="Conversation.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 	<script src="supabase.js"></script>
+	<script src="motdepasse.js"></script>
 </body>
 </html>
