@@ -10,8 +10,8 @@ formulaire.addEventListener("submit", async function (e) {
 
     //Demande à Supabase d'envoyer le lien
     await client.auth.resetPasswordForEmail(courriel, {
-        redirectTo: "http://127.0.0.1:5500/NouveauMotDePasse.html"
-    });
+        redirectTo: new URL("NouveauMotDePasse.html", window.location.href).href
+});
 
     // Même message dans tous les cas (sécurité)
     message.textContent = "Nous vous avons envoyé un courriel à votre adresse.  Si vous ne le trouvez pas, regardez vos pourriels";

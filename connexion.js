@@ -5,7 +5,7 @@ const erreur = document.getElementById("erreurConnexion");
 formulaire.addEventListener("submit", async function (e) {
     e.preventDefault(); // empêche la page de se recharger
 
-    const courriel = document.getElementById("contact").value;
+    const courriel = document.getElementById("contact").value.trim();
     const motDePasse = document.getElementById("pwd").value;
 
     // vérification par Supabase
