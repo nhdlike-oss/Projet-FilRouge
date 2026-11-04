@@ -120,7 +120,7 @@ formInvitation.addEventListener("submit", async function (e) {
     const lien = new URL("index.html", window.location.href).href;
 
     const sujet = "Rejoins-moi sur JaWse !";
-    const texte = "Salut ! Je suis sur JaWse, une messagerie pour jaser, partager et échanger. Inscris-toi ici : " + lien;
+    const texte = "Salut ! Je suis sur JaWse, une messagerie pour jaser, partager et échanger.\n\n Inscris-toi ici : " + lien;
 
     // Sur téléphone : menu de partage (WhatsApp, SMS, Gmail…)
     if (navigator.share) {
