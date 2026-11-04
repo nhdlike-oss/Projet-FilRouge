@@ -94,3 +94,49 @@ champRecherche.addEventListener("input", async function () {
     }
 });
 
+// 3. Ajouter un contact
+async function ajouterContact(id) {
+    await client.from("contacts").insert({ user_id: utilisateur.id, contact_id: id });
+    champRecherche.value = "";
+    listeResultats.innerHTML = "";
+    afficherContacts();
+}
+
+// 4. Retirer un contact
+async function retirerContact(id) {
+    if (!confirm("Retirer ce contact ?")) return;
+    await client
+        .from("contacts")
+        .delete()
+        .eq("user_id", utilisateur.id)
+        .eq("contact_id", id);
+    afficherContacts();
+}
+
+// 5. Inviter un ami par courriel
+formInvitation.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const courriel = document.getElementById("courrielAmi").value.trim();
+    const lien = new URL("index.html", window.location.href).href;
+
+    const sujet = "Rejoins-moi sur JaWse !";
+    const texte = "Salut ! Je suis sur JaWse, une messagerie pour jaser, partager et échanger. Inscris-toi ici : " + lien;
+
+    window.location.href = "mailto:" + courriel
+        + "?subject=" + encodeURIComponent(sujet)
+        + "&body=" + encodeURIComponent(texte);
+});
+
+// Démarrage : il faut être connecté
+async function demarrer() {
+    const { data } = await client.auth.getUser();
+    utilisateur = data.user;
+
+    if (!utilisateur) {
+        window.location.href = "index.html";
+        return;
+    }
+    afficherContacts();
+}
+
+demarrer();
