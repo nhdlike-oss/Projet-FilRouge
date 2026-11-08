@@ -1466,7 +1466,7 @@ dialog button.danger {
 #bouton-basculer:focus {
     margin: 16px 0 8px;
     padding: 0;
-    background: none;
+    background: var(--violetClair);
     border: none;
     border-radius: 0;
     outline: none;
