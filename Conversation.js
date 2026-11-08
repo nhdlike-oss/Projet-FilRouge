@@ -1,7 +1,10 @@
 // ============================================
 // Conversation.js
-// Salons, messages, temps réel, "en train d'écrire",
-// personnes en ligne, notifications, paramètres, profil
+// Page de conversation : salons, messages en temps réel,
+// "en train d'écrire", personnes en ligne, notifications,
+// paramètres (déconnexion et suppression du compte)
+// Auteure : nene hassy 
+
 // ============================================
 
 
@@ -378,7 +381,7 @@ function suivreNotifications() {
   canalNotif.subscribe();
 }
 
-// ---------- 9. Les formulaires ----------
+//  formulaires ----------
 
 // Créer un salon
 formSalon.addEventListener("submit", async function (event) {
@@ -463,7 +466,7 @@ document.getElementById("bouton-supprimer").addEventListener("click", async func
 });
 
 
-// ---------- 11. Démarrage ----------
+//  Démarrage ----------
 
 async function demarrer() {
   const { data } = await client.auth.getSession();
