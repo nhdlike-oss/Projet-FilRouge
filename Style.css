@@ -1470,7 +1470,7 @@ dialog button.danger {
     border: none;
     border-radius: 0;
     outline: none;
-    color: var(--violetClair);
+    color: var(--blanc);
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
