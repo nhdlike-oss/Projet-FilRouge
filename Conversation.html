@@ -21,14 +21,16 @@
         </div>
       </div>
 
-      <h2>Salons</h2>
+      <h2 id="titre-liste">Salons</h2>
       <ul id="liste-conversations"></ul>
+      <ul id="liste-prives" hidden></ul>
 
       <form id="formulaire-conversation">
         <input type="text" id="nom-conversation" placeholder="Nouveau salon" autocomplete="off" required>
         <button type="submit">+</button>
       </form>
       <p id="erreur-conversation" class="erreur"></p>
+            <button id="bouton-basculer" type="button" class="lien-barre">Messages privés</button>
 
       <h2>En ligne</h2>
       <ul id="liste-en-ligne"></ul>
