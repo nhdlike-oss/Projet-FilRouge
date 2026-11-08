@@ -5,7 +5,7 @@ formulaire.addEventListener("submit", async function (e) {
     e.preventDefault(); 
 
 
-    const courriel = document.getElementById("Courriel").value;
+    const courriel = document.getElementById("Courriel").value.trim();
     const motDePasse = document.getElementById("Mot_de_pass").value;
     const confirmation = document.getElementById("Confirmer_Mot_de_pass").value;
 
@@ -31,10 +31,21 @@ formulaire.addEventListener("submit", async function (e) {
     });
 
        
-    if (error) {
-        message.textContent = "Erreur : " + error.message;
+       if (error) {
+        const texte = error.message.toLowerCase();
+
+        if (texte.includes("rate limit")) {
+            message.textContent = "Trop d'essais. Attends quelques minutes, puis réessaie.";
+        } else if (texte.includes("already registered")) {
+            message.textContent = "Impossible de créer le compte avec ce courriel.";
+        } else if (texte.includes("password")) {
+            message.textContent = "Mot de passe trop faible : au moins 8 caractères, avec un chiffre, une majuscule et un caractère spécial.";
+        } else {
+            message.textContent = "Une erreur est survenue. Réessaie plus tard.";
+        }
         message.className = "messageErreur";
         message.hidden = false;
+        message.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
     }
     if (data.session) {
