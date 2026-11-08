@@ -162,7 +162,7 @@ document.getElementById("bouton-retour").addEventListener("click", function () {
 
 
 
-// ---------- 5. Les messages ----------
+//  Les messages ----------
 
 async function chargerMessages() {
   const { data, error } = await client
@@ -170,6 +170,7 @@ async function chargerMessages() {
     .select("id, user_id, auteur, contenu, created_at")
     .eq("salon_id", salon.id)
     .order("created_at", { ascending: false })
+    .select("id, user_id, auteur, contenu, image_url, created_at")
     .limit(50);
 
   if (error) {
@@ -215,9 +216,24 @@ function afficherMessage(m) {
   entete.appendChild(spanHeure);
 
   // La bulle
-  const bulle = document.createElement("div");
+   const bulle = document.createElement("div");
   bulle.className = "bulle";
-  bulle.textContent = m.contenu;
+
+  if (m.contenu) {
+    bulle.appendChild(document.createTextNode(m.contenu));
+  }
+
+  if (m.image_url) {
+    const image = document.createElement("img");
+    image.className = "imageMessage";
+    image.src = m.image_url;
+    image.alt = "Image envoyée";
+    // Clic : ouvre l'image en grand dans un nouvel onglet
+    image.addEventListener("click", function () {
+      window.open(m.image_url, "_blank");
+    });
+    bulle.appendChild(image);
+  }
 
   contenu.appendChild(entete);
   contenu.appendChild(bulle);
@@ -228,7 +244,7 @@ function afficherMessage(m) {
 }
 
 
-// ---------- 6. Temps réel : messages et "en train d'écrire" ----------
+// Temps réel : messages et "en train d'écrire" ----------
 
 function ecouterSalon() {
   if (canalSalon !== null) client.removeChannel(canalSalon);
@@ -278,7 +294,7 @@ champMessage.addEventListener("input", function () {
 });
 
 
-// ---------- 7. Personnes en ligne ----------
+//  Personnes en ligne ----------
 
 function suivreEnLigne() {
   canalEnLigne = client.channel("en-ligne", {
@@ -364,7 +380,7 @@ function suivreNotifications() {
     const leSalon = listeDesSalons.find(function (s) { return s.id === m.salon_id; });
     const nomSalon = leSalon ? leSalon.nom : "un salon";
 
-    const texte = (m.auteur || "Quelqu'un") + " a écrit dans # " + nomSalon + " : " + m.contenu;
+    const texte = (m.auteur || "Quelqu'un") + " a écrit dans # " + nomSalon + " : " + (m.contenu || "une image");
     afficherNotification(texte);
     enregistrerNotification(texte);
   });
