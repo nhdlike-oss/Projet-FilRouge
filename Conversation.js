@@ -135,7 +135,6 @@ async function chargerSalons() {
 
 async function ouvrirSalon(s) {
   salon = s;
-    prive = null;   // on quitte la discussion privée
   titre.textContent = "# " + s.nom;
   formMessage.hidden = false;
   texteEcriture.hidden = true;
@@ -153,7 +152,6 @@ document.getElementById("bouton-retour").addEventListener("click", function () {
     canalSalon = null;
   }
   salon = null;
-  prive = null;
   titre.textContent = "Choisis ou crée un salon";
   listeMessages.innerHTML = "";
   formMessage.hidden = true;
@@ -411,12 +409,49 @@ formMessage.addEventListener("submit", async function (event) {
   const texte = champMessage.value.trim();
   if (texte === "") return;
 
-  
-  // Discussion privée ouverte : on envoie en privé
-  if (prive !== null) {
-    await envoyerPrive(texte);
+  // Envoyer une image 
+const champImage = document.getElementById("champ-image");
+
+champImage.addEventListener("change", async function () {
+  const fichier = champImage.files[0];
+  if (!fichier || salon === null) return;
+
+  // Limite de 5 Mo pour ne pas surcharger le stockage
+  if (fichier.size > 5 * 1024 * 1024) {
+    alert("Image trop lourde (5 Mo maximum).");
+    champImage.value = "";
     return;
   }
+
+  // Nom unique : mon id + l'heure 
+  const extension = fichier.name.split(".").pop();
+  const chemin = utilisateur.id + "/" + Date.now() + "." + extension;
+
+  //  Envoyer le fichier dans le stockage
+  const { error: erreurEnvoi } = await client.storage
+    .from("images-messages")
+    .upload(chemin, fichier);
+
+  if (erreurEnvoi) {
+    console.log("Erreur envoi image :", erreurEnvoi.message);
+    alert("Impossible d'envoyer l'image.");
+    champImage.value = "";
+    return;
+  }
+
+  //  Récupérer l'adresse publique de l'image
+  const { data } = client.storage.from("images-messages").getPublicUrl(chemin);
+
+  //  Enregistrer un message qui contient cette adresse
+  const { error } = await client
+    .from("messages")
+    .insert({ salon_id: salon.id, auteur: nom, contenu: "", image_url: data.publicUrl });
+
+  if (error) console.log("Erreur message image :", error.message);
+
+  champImage.value = ""; 
+});
+
 
   const { error } = await client
     .from("messages")
@@ -492,12 +527,6 @@ async function demarrer() {
   suivreEnLigne();
   suivreNotifications();
 
-  // Venu de la page Contacts avec ?avec=ID : on ouvre la discussion privée
-  const avec = new URLSearchParams(window.location.search).get("avec");
-  if (avec) {
-    boutonBasculer.click();
-    ouvrirPrive(avec);
-  }
   // Quand quelqu'un crée un salon, on recharge la liste
   client
     .channel("salons")
