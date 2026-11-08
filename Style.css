@@ -679,7 +679,7 @@ button:hover {
     flex-direction: column;
     gap: 6px;
 }
-.avatarprofil {
+.avatar {
     width: 110px;
     height: 110px;
     border-radius: 50%;
