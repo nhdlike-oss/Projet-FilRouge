@@ -1,11 +1,11 @@
 // ============================================
 // Conversation.js
 // Salons, messages, temps réel, "en train d'écrire",
-// personnes en ligne, notifications, paramètres
+// personnes en ligne, notifications, paramètres, profil
 // ============================================
 
 
-// ---------- 1. Variables ----------
+//  Variables 
 
 let utilisateur = null;
 let nom = "";
@@ -18,7 +18,7 @@ let derniereFois = 0;        // pour ne pas envoyer "j'écris" trop souvent
 let profils = {};            // pseudo et photo de chaque personne (id -> profil)
 let maPhoto = null;          // ma photo de profil
 
-// ---------- 2. Éléments du HTML ----------
+//  2. Éléments du HTML 
 
 const app = document.getElementById("page_web");
 const listeSalons = document.getElementById("liste-conversations");
@@ -38,7 +38,7 @@ const cadrenotifications = document.getElementById("liste-notifications");
 const vide = document.getElementById("vide");
 
 
-// ---------- 3. Avatar (rond avec l'initiale) ----------
+// ---------- Avatar ----------
 
 function creerAvatar(nomPersonne, petit) {
   const rond = document.createElement("div");
@@ -101,7 +101,7 @@ function creerPhoto(url, petit) {
 }
  
 
-// ---------- 4. Les salons ----------
+//  Les salons
 
 async function chargerSalons() {
   const { data, error } = await client
@@ -144,20 +144,6 @@ async function ouvrirSalon(s) {
   champMessage.focus();
 }
 
-// Bouton retour (téléphone)
-document.getElementById("bouton-retour").addEventListener("click", function () {
-  if (canalSalon !== null) {
-    client.removeChannel(canalSalon);
-    canalSalon = null;
-  }
-  salon = null;
-  titre.textContent = "Choisis ou crée un salon";
-  listeMessages.innerHTML = "";
-  formMessage.hidden = true;
-  texteEcriture.hidden = true;
-  app.classList.remove("salon-ouvert");
-  chargerSalons();
-});
 
 
 // ---------- 5. Les messages ----------
@@ -420,7 +406,7 @@ formMessage.addEventListener("submit", async function (event) {
 });
 
 
-// ---------- 10. Paramètres (pop-up) ----------
+//  Paramètres (pop-up) 
 
 document.getElementById("bouton-parametres").addEventListener("click", function () {
   document.getElementById("parametres-nom").textContent = nom;
@@ -430,8 +416,26 @@ document.getElementById("bouton-parametres").addEventListener("click", function 
 document.getElementById("bouton-fermer").addEventListener("click", function () {
   popupParametres.close();
 });
-
 document.getElementById("bouton-deconnexion").addEventListener("click", async function () {
+  await client.auth.signOut();
+  window.location.href = "index.html";
+});
+
+document.getElementById("bouton-supprimer").addEventListener("click", async function () {
+  console.log("clic sur supprimer");
+
+  const sur = confirm("Supprimer ton compte pour toujours ? Tes messages seront aussi supprimés.");
+  if (!sur) return;
+
+  const { error } = await client.rpc("supprimer_mon_compte");
+
+  if (error) {
+    console.log("Erreur suppression compte :", error.message);
+    alert("Impossible de supprimer le compte : " + error.message);
+    return;
+  }
+
+  localStorage.removeItem("notifications-" + utilisateur.id);
   await client.auth.signOut();
   window.location.href = "index.html";
 });
