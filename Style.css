@@ -1425,7 +1425,6 @@ dialog button.danger {
     font-size: 16px;
   }
 }
-
 /*============= Discussion privée ============== */
 .entetePrive {
     display: flex;
@@ -1442,6 +1441,42 @@ dialog button.danger {
 
 .retourPrive:hover {
     text-decoration: underline;
+}
+
+/* Sur ordinateur, la barre suffit : on cache « ← Contacts » */
+@media (min-width: 701px) {
+    .retourPrive {
+        display: none;
+    }
+}
+
+/* Listes de la barre (personnes ou salons) : prennent la place libre */
+.listePrive {
+    flex: 1;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.listePrive li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.listePrive li:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.listePrive li.active {
+    background: var(--lavande);
+    color: var(--violet);
+    font-weight: bold;
 }
 
 /* Nom cliquable dans la liste des contacts */

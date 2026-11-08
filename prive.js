@@ -7,12 +7,21 @@ const listeMessages = document.getElementById("messages");
 const formulaire = document.getElementById("formulaire");
 const champ = document.getElementById("champ");
 
+
+// Barre de gauche
+const titreListe = document.getElementById("titreListe");
+const listePrive = document.getElementById("liste-prives");
+const listeSalons = document.getElementById("liste-salons");
+const boutonBasculer = document.getElementById("basculer");
+
+
 // L'id du contact est dans l'adresse : Prive.html?avec=ID
 const amiId = new URLSearchParams(window.location.search).get("avec");
 
 let utilisateur = null;   
 let moi = null;           
-let ami = null;           
+let ami = null;      
+
 // Afficher un message 
 function afficherMessage(m) {
     const estMoi = m.expediteur === utilisateur.id;
@@ -107,6 +116,85 @@ formulaire.addEventListener("submit", async function (e) {
     }
     champ.value = "";   // le message s'affichera grâce au temps réel
 });
+
+
+// ---------- Barre de gauche : les personnes ----------
+// Mes contacts + ceux qui m'ont ajoutée
+async function chargerListe() {
+    const { data: liens } = await client
+        .from("contacts")
+        .select("user_id, contact_id")
+        .or("user_id.eq." + utilisateur.id + ",contact_id.eq." + utilisateur.id);
+
+    // On garde "l'autre personne" de chaque lien, sans doublon
+    const ids = [];
+    for (const l of (liens || [])) {
+        const autre = (l.user_id === utilisateur.id) ? l.contact_id : l.user_id;
+        if (!ids.includes(autre)) ids.push(autre);
+    }
+
+    listePrive.innerHTML = "";
+    if (ids.length === 0) return;
+
+    const { data: profils } = await client
+        .from("profils")
+        .select("id, pseudo, avatar_url")
+        .in("id", ids);
+
+    for (const p of (profils || [])) {
+        const li = document.createElement("li");
+        if (p.id === amiId) li.className = "active";   // la personne ouverte
+
+        const img = document.createElement("img");
+        img.className = "photoMessage petit";
+        img.src = p.avatar_url || AVATAR;
+        img.alt = "";
+        img.onerror = function () { img.onerror = null; img.src = AVATAR; };
+
+        li.appendChild(img);
+        li.appendChild(document.createTextNode(p.pseudo || "Sans nom"));
+        li.addEventListener("click", function () {
+            window.location.href = "prive.html?avec=" + p.id;
+        });
+        listePrive.appendChild(li);
+    }
+}
+
+// ---------- Barre de gauche : les salons ----------
+async function chargerSalons() {
+    const { data } = await client
+        .from("salons")
+        .select("id, nom")
+        .order("nom", { ascending: true });
+
+    listeSalons.innerHTML = "";
+    for (const s of (data || [])) {
+        const li = document.createElement("li");
+        li.textContent = "# " + s.nom;
+        li.addEventListener("click", function () {
+            window.location.href = "Conversation.html?salon=" + s.id;
+        });
+        listeSalons.appendChild(li);
+    }
+}
+
+// ---------- Bascule : Messages privés <-> Salons ----------
+boutonBasculer.addEventListener("click", function () {
+    if (listeSalons.hidden) {
+        // On montre les salons
+        listeSalons.hidden = false;
+        listePrive.hidden = true;
+        titreListe.textContent = "Salons";
+        boutonBasculer.textContent = "Messages privés";
+    } else {
+        // On montre les personnes
+        listeSalons.hidden = true;
+        listePrive.hidden = false;
+        titreListe.textContent = "Messages privés";
+        boutonBasculer.textContent = "Salons";
+    }
+});
+
 
 // Démarrage
 async function demarrer() {
