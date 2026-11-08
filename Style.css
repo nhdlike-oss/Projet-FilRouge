@@ -1419,3 +1419,32 @@ dialog button.danger {
     font-size: 16px;
   }
 }
+
+/*============= Discussion privée ============== */
+.entetePrive {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.retourPrive {
+    margin-right: 8px;
+    color: var(--violet);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.retourPrive:hover {
+    text-decoration: underline;
+}
+
+/* Nom cliquable dans la liste des contacts */
+a.nomContact {
+    text-decoration: none;
+}
+
+a.nomContact:hover {
+    color: var(--violet);
+    text-decoration: underline;
+}
+/*============= Fin discussion privée ============== */
