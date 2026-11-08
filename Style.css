@@ -1461,8 +1461,24 @@ dialog button.danger {
     font-size: 14px;
 }
 
-#bouton-basculer {
-    margin: 12px 0 0;
+#bouton-basculer,
+#bouton-basculer:hover,
+#bouton-basculer:focus {
+    margin: 16px 0 8px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    color: var(--blanc);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+}
 }
 /*============= Fin messages privés ============== */
 
