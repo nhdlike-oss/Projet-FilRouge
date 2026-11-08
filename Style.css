@@ -1055,7 +1055,7 @@ html, body {
 }
 
 /* Mes messages : à droite, bulle blanche */
-#messages li.moi { justify-content: flex-end; }
+
 #messages li.moi .contenu { text-align: right; }
 #messages li.moi .entete { justify-content: flex-end; }
 
