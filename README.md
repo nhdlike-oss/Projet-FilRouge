@@ -1,8 +1,8 @@
 # Projet-FilRouge
-Nom du projet : ENTRE NOUS (Site WebMessagerie)  
+Nom du projet : JaWse (Site WebMessagerie)  
 Site Web : https://nhdlike-oss.github.io/Projet-FilRouge
 ## Description
-Entre Nous est un site de rencontre qui permet aux personnes de 16 ans et plus de faire connaissance avec des gens de partout dans le monde pour se faire des amis ou qui sait  trouver l'amour. Grâce à sa messagerie instantanée  les utilisateurs peuvent échanger des messages en temps réel avec leurs contacts et dans des salons de conversation. Le site propose aussi une fonctionnalité pour créer une photo de profil pour se faire  reconnaitre de ses contacts .
+JaWse est un site de rencontre qui permet aux personnes de 13 ans et plus de faire connaissance avec des gens de partout dans le monde pour se faire des amis ou qui sait  trouver l'amour. Grâce à sa messagerie instantanée  les utilisateurs peuvent échanger des messages en temps réel avec leurs contacts et dans des salons de conversation. Le site propose aussi une fonctionnalité pour créer une photo de profil pour se faire  reconnaitre de ses contacts .
 
 ## OBJECTIF
 Offrir un espace simple  rapide et accessible pour discuter directement depuis un navigateur sur ordinateur comme sur téléphone sans rien installer.
@@ -13,14 +13,24 @@ Offrir un espace simple  rapide et accessible pour discuter directement depuis u
 - Liste des salons de conversation
 - Envoi et réception de messages texte en temps réel
 - Affichage horodaté des messages
-- 
+
+  
+## Fonctionnalités secondaires
+
+- Notifications visuelles, avec historique
+- Indicateur « en ligne »
+- Indicateur « en train d'écrire… »
+- Affichage adapté au téléphone
+
 ## Fonctionnalité supplémentaire
-**La Photo de profil** : La photo de profil permet à chaque utilisateur de personnaliser son compte avec une image qui le représente. Elle s'affiche à côté de ses messages dans la liste des conversations ce qui permet d'identifier rapidement ses interlocuteurs.
+**Profil utilisateur avec photo** : chaque personne peut choisir un pseudo et téléverser sa photo de profil. La photo s'affiche à côté de ses messages dans les salons et dans la liste des personnes en ligne.
 
 
 
 ## Technologies utilisées
-- HTML, CSS, JavaScript...
+- HTML, CSS, JavaScript
+- Supabase (comptes, base de données, temps réel, stockage des photos)
+- GitHub Pages (publication du site)
 
   
 ## Équipe
