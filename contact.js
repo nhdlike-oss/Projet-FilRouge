@@ -68,7 +68,7 @@ async function afficherContacts() {
         for (const p of (profils || [])) {
         listeContacts.appendChild(creerLigne(p, "Retirer", function () {
             retirerContact(p.id);
-        }, "Prive.html?avec=" + p.id));
+        }, "prive.html?avec=" + p.id));
     }
 }
 // 2. Rechercher un membre par nom d'utilisateur
