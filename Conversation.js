@@ -143,6 +143,20 @@ async function ouvrirSalon(s) {
   await chargerMessages();
   champMessage.focus();
 }
+// Bouton retour (téléphone)
+document.getElementById("bouton-retour").addEventListener("click", function () {
+  if (canalSalon !== null) {
+    client.removeChannel(canalSalon);
+    canalSalon = null;
+  }
+  salon = null;
+  titre.textContent = "Choisis ou crée un salon";
+  listeMessages.innerHTML = "";
+  formMessage.hidden = true;
+  texteEcriture.hidden = true;
+  app.classList.remove("salon-ouvert");
+  chargerSalons();
+});
 
 
 
