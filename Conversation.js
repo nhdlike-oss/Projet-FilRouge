@@ -33,8 +33,7 @@ const formMessage = document.getElementById("formulaire");
 const champMessage = document.getElementById("champ");
 const popupParametres = document.getElementById("popup-parametres");
 const bandeau = document.getElementById("notification");
-const popupnotifications = document.getElementById("popup-notifications");
-const cadrenotifications = document.getElementById("liste-notifications");
+
 const vide = document.getElementById("vide");
 
 
@@ -309,8 +308,8 @@ function suivreEnLigne() {
 }
 
 
-// ---------- 8. Notifications ----------
-// ---------- 8. Notifications ----------
+
+//  Notifications
 
 const popupNotifications = document.getElementById("popup-notifications");
 const cadreNotifications = document.getElementById("cadre-notifications");
