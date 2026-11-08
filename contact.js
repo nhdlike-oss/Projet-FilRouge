@@ -11,7 +11,7 @@ const AVATAR = "image/avatar.png";
 let utilisateur = null;   // la personne connectée
 let mesIds = [];          // les id de mes contacts
 
-function creerLigne(profil, texteBouton, action) {
+function creerLigne(profil, texteBouton, action, lien) {
     const li = document.createElement("li");
     li.className = "personne";
 
@@ -22,7 +22,13 @@ function creerLigne(profil, texteBouton, action) {
     img.onerror = function () { img.onerror = null; img.src = AVATAR; };
 
 
-    const nom = document.createElement("span");
+       let nom;
+    if (lien) {
+        nom = document.createElement("a");   // nom cliquable
+        nom.href = lien;
+    } else {
+        nom = document.createElement("span");
+    }
     nom.className = "nomContact";
     nom.textContent = profil.pseudo || "Sans nom";
 
@@ -59,10 +65,10 @@ async function afficherContacts() {
         .select("id, pseudo, avatar_url")
         .in("id", mesIds);
 
-    for (const p of (profils || [])) {
+        for (const p of (profils || [])) {
         listeContacts.appendChild(creerLigne(p, "Retirer", function () {
             retirerContact(p.id);
-        }));
+        }, "Prive.html?avec=" + p.id));
     }
 }
 // 2. Rechercher un membre par nom d'utilisateur
