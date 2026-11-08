@@ -23,7 +23,7 @@
 
       <h2 id="titre-liste">Salons</h2>
       <ul id="liste-conversations"></ul>
-      <ul id="liste-prives" hidden></ul>
+      
 
       <form id="formulaire-conversation">
         <input type="text" id="nom-conversation" placeholder="Nouveau salon" autocomplete="off" required>
@@ -53,9 +53,11 @@
       <p id="indicateur-ecriture" hidden></p>
 
       <form id="formulaire" hidden>
-        <input type="text" id="champ" placeholder="Écrire un message…" autocomplete="off" required>
-        <button type="submit">Envoyer</button>
-      </form>
+  <label for="champ-image" id="bouton-image" title="Envoyer une image"></label>
+  <input type="file" id="champ-image" accept="image/*" hidden>
+  <input type="text" id="champ" placeholder="Écrire un message…" autocomplete="off">
+  <button type="submit">Envoyer</button>
+</form>
     </main>
 
   </div>
