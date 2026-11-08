@@ -1365,3 +1365,57 @@ dialog button.danger {
   gap: 8px;
 }
 /*============= Fin photos discussion ============== */
+
+/*============= Affichage téléphone (conversation) ============== */
+@media (max-width: 700px) {
+  /* la liste des salons prend tout l'écran */
+  #barre {
+    width: 100%;
+  }
+
+  /* le chat est caché tant qu'aucun salon n'est ouvert */
+  #zone-chat {
+    display: none;
+  }
+
+  /* salon ouvert : on cache la barre, on montre le chat */
+  #page_web.salon-ouvert #barre {
+    display: none;
+  }
+
+  #page_web.salon-ouvert #zone-chat {
+    display: flex;
+  }
+
+  /* le bouton retour apparaît */
+  #bouton-retour {
+    display: inline-block;
+  }
+
+  /* un peu moins de marges, bulles plus larges */
+  #entete-chat {
+    padding: 12px 16px;
+  }
+
+  #messages {
+    padding: 16px;
+  }
+
+  #indicateur-ecriture {
+    padding: 4px 16px;
+  }
+
+  #formulaire {
+    padding: 10px 16px;
+  }
+
+  .contenu {
+    max-width: 80%;
+  }
+
+  /* Safari zoome si le texte d'un champ est sous 16px */
+  #champ,
+  #nom-conversation {
+    font-size: 16px;
+  }
+}
