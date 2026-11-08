@@ -425,50 +425,6 @@ formMessage.addEventListener("submit", async function (event) {
   const texte = champMessage.value.trim();
   if (texte === "") return;
 
-  // Envoyer une image 
-const champImage = document.getElementById("champ-image");
-
-champImage.addEventListener("change", async function () {
-  const fichier = champImage.files[0];
-  if (!fichier || salon === null) return;
-
-  // Limite de 5 Mo pour ne pas surcharger le stockage
-  if (fichier.size > 5 * 1024 * 1024) {
-    alert("Image trop lourde (5 Mo maximum).");
-    champImage.value = "";
-    return;
-  }
-
-  // Nom unique : mon id + l'heure 
-  const extension = fichier.name.split(".").pop();
-  const chemin = utilisateur.id + "/" + Date.now() + "." + extension;
-
-  //  Envoyer le fichier dans le stockage
-  const { error: erreurEnvoi } = await client.storage
-    .from("images-messages")
-    .upload(chemin, fichier);
-
-  if (erreurEnvoi) {
-    console.log("Erreur envoi image :", erreurEnvoi.message);
-    alert("Impossible d'envoyer l'image.");
-    champImage.value = "";
-    return;
-  }
-
-  //  Récupérer l'adresse publique de l'image
-  const { data } = client.storage.from("images-messages").getPublicUrl(chemin);
-
-  //  Enregistrer un message qui contient cette adresse
-  const { error } = await client
-    .from("messages")
-    .insert({ salon_id: salon.id, auteur: nom, contenu: "", image_url: data.publicUrl });
-
-  if (error) console.log("Erreur message image :", error.message);
-
-  champImage.value = ""; 
-});
-
-
   const { error } = await client
     .from("messages")
     .insert({ salon_id: salon.id, auteur: nom, contenu: texte });
@@ -479,6 +435,37 @@ champImage.addEventListener("change", async function () {
   }
 
   champMessage.value = ""; // le message s'affichera grâce au temps réel
+});
+
+// Envoyer une image (bouton +)
+const champImage = document.getElementById("champ-image");
+
+champImage.addEventListener("change", async function () {
+  const fichier = champImage.files[0];
+  if (!fichier || salon === null) return;
+
+  // Nom unique pour la photo
+  const extension = fichier.name.split(".").pop();
+  const chemin = utilisateur.id + "/" + Date.now() + "." + extension;
+
+  // Envoyer la photo dans le stockage
+  const { error: erreurEnvoi } = await client.storage
+    .from("images-messages")
+    .upload(chemin, fichier);
+
+  if (erreurEnvoi) {
+    alert("Impossible d'envoyer l'image : " + erreurEnvoi.message);
+    champImage.value = "";
+    return;
+  }
+
+  // Enregistrer un message avec l'adresse de la photo
+  const { data } = client.storage.from("images-messages").getPublicUrl(chemin);
+  await client
+    .from("messages")
+    .insert({ salon_id: salon.id, auteur: nom, contenu: "", image_url: data.publicUrl });
+
+  champImage.value = "";
 });
 
 
