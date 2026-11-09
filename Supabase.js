@@ -1,6 +1,5 @@
 // ============================================
 // supabase.js
-// Connexion à Supabase, partagée par toutes les pages.
 // ============================================
 
 const SUPABASE_URL = "https://sqdaobashlbxmtmurlux.supabase.co";
