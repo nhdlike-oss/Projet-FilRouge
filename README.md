@@ -114,4 +114,6 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 - `Conversation.js` : salons, messages, notifications, images
 - `Contact.js` : contacts
 - `image/` : logo, avatar et images du diaporama
- 
+  
+## A savoir 
+Les salons sont publics et restent après la suppression du compte de la personne qui les a créés car d'autres personnes y ont écrit. Il n'y a pas de messages privés( qui serais une fonctionalite supp)
