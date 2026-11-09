@@ -4,7 +4,7 @@ const apercu = document.getElementById("apercu");
 const formulaire = document.getElementById("formProfil");
 const message = document.getElementById("messageProfil");
 const boutonSupprimer = document.getElementById("supprimerPhoto");
-const AVATAR = "image/avatar.png";
+const AVATAR = "../image/avatar.png";
 
 // Garde en mémoire la personne connectée et la photo choisie mais pas encore envoyée
 let utilisateur = null;

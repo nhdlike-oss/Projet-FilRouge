@@ -6,7 +6,7 @@ const champRecherche = document.getElementById("recherche");
 const listeResultats = document.getElementById("resultats");
 const listeContacts = document.getElementById("mesContacts");
 const formInvitation = document.getElementById("formInvitation");
-const AVATAR = "image/avatar.png";
+const AVATAR = "../image/avatar.png";
 
 // Garde en mémoire la personne connectée et les id de ses contacts
 let utilisateur = null;   // la personne connectée
