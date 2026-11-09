@@ -55,31 +55,31 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 ```
 Projet-FilRouge/
 ├──html/
-├── index.html
-├── Connexion.html
-├── CreerCompte.html
-├── Mot_de_Pass_Oublie.html
-├── Conversation.html
-├── Contact.html
-├── Profil.html
-├── Notification.html
-├── Parametres.html/
-├──Condition_utulisation.html
-├── Politique_confidentialite.html
-├── NouveauMoDePasses.html/
-└── Style.css/
+   ├── index.html
+   ├── Connexion.html
+   ├── CreerCompte.html
+   ├── Mot_de_Pass_Oublie.html
+   ├── Conversation.html
+   ├── Contact.html
+   ├── Profil.html
+   ├── Notification.html
+   ├── Parametres.html/
+   ├──Condition_utulisation.html
+   ├── Politique_confidentialite.html
+   ├── NouveauMoDePasses.html/
+├──Style.css/
 ├── Script.js/
-│   ├── Supabase.js
-│   ├── Connexion.js
-│   ├── Inscription.js
-│   ├── MotDePasse.js
-│   ├── NouveauMotDePasse.js
-│   ├── Conversation.js
-│   ├── Contact.js
-│   └── Profil.js
-|   ├── Parametre.js
-|   ├── Script.js
-|   ├── Notification.js/
+   ├── Supabase.js
+   ├── Connexion.js
+   ├── Inscription.js
+   ├── MotDePasse.js
+   ├── NouveauMotDePasse.js
+   ├── Conversation.js
+   ├── Contact.js
+   └── Profil.js
+   ├── Parametre.js
+   ├── Script.js
+   ├── Notification.js/
 ├── image/
 └── README.md
 ```
