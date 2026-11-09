@@ -52,7 +52,7 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 - Suzie Valentin : index ,inscription, connexion, mot de passe oublié, contacts,  nouveau mot de pass,  photos de profil, affichage des photos de profil dans la conversation, affichage téléphone
 
 ## Structure du projet
-
+```
 Projet-FilRouge/
 ├── index.html
 ├── Connexion.html
@@ -78,7 +78,8 @@ Projet-FilRouge/
 |   ├── Scipt.js
 ├── image/
 └── README.md
-  
+```
+
 ## A savoir 
 Les salons sont publics et restent après la suppression du compte de la personne qui les a créés car d'autres personnes y ont écrit. Il n'y a pas de messages privés( qui serais une fonctionalite supp)
 
