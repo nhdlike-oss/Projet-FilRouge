@@ -4,13 +4,14 @@
 	<meta charset="utf-8">
 	 <meta name="viewport"
          content="width=device-width, initial-scale=1, viewport-fit=cover">
-	
+	<!-- Icône affichée dans l'onglet du navigateur -->
 	<link rel="icon" type="image/png" href="image/logo.png" sizes="32x32">
 	<link rel="stylesheet" href="Style.css">
 	<title>JaWse</title>
 </head>
 <body class="corpsPage pageAccueil">
 
+	<!-- En-tête avec le logo qui ramène à l'accueil -->
 	<header class="barre">
 		<a class="marque" href="index.html">
 			<img class="logo" src="image/logo.png" alt="">
@@ -19,7 +20,7 @@
 
 	<main class="accueil">
 
-		<!-- Présentation (à gauche) -->
+		<!-- Présentation du site : titre, slogan et description (à gauche) -->
 		<section class="presentation">
 			<h2>Bienvenue sur JaWse</h2>
 			<p class="slogan">Jaser - Partager - Échanger</p>
@@ -27,7 +28,7 @@
 				   Votre messagerie organisée simplement. Retrouvez tous vos échanges au même endroit.
 			</p>
 
-			<!-- Diaporama d'images -->
+			<!-- Diaporama d'images qui défilent -->
 			<div class="diaporama">
 				<img class="diapo" src="image/image1.png" alt="Des personnes qui se rencontrent" style="max-width: 100%;">
 				<img class="diapo" src="image/image2.jpg" alt="Une conversation qui démarre" style="max-width: 100%;">
@@ -36,11 +37,11 @@
 			</div>
 		</section>
 
-		
+		<!-- Formulaire de connexion affiché sur ordinateur -->
 		<section class="connexion" id="connexion">
 			<h3>Connexion</h3>
 
-			<!-- Message d'erreur, caché au départ -->
+			<!-- Message d'erreur affiché si la connexion échoue -->
 			<p id="erreurConnexion" class="messageErreur" role="alert" hidden></p>
 
 			<form class="formConnexion" id="formConnexion">
@@ -67,7 +68,7 @@
 			<p class="inscription">Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
 		</section>
 
-		<!-- Connexion sur téléphone-->
+		<!-- Boutons de connexion et d'inscription affichés sur téléphone -->
 		<div class="connexionMobile">
 			<a class="bouton" href="Connexion.html">Se connecter</a>
 			<p>Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
@@ -75,7 +76,7 @@
 
 	</main>
 
-	<!-- Pied de page -->
+	<!-- Pied de page avec les liens légaux et le copyright -->
 	<footer class="piedPage">
 		<nav class="piedLiens">
 			<a href="Conditions_utilisation.html">Conditions d'utilisation</a>
@@ -85,6 +86,7 @@
 		<p>© 2026 JaWse. Tous droits réservés.</p>
 	</footer>
 
+	<!-- Chargement de Supabase, de sa configuration et du script de connexion -->
 	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   	<script src="Supabase.js"></script>
 	<script src="Connexion.js"></script>
