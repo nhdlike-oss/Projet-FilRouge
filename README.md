@@ -53,19 +53,31 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 
 ## Structure du projet
 
-- `index.html` : page d'accueil et connexion
-- `Connexion.html` : connexion (affichage téléphone)
-- `CreerCompte.html` : inscription
-- `Conversation.html` : salons, messages, paramètres
-- `Contact.html` : liste de contacts
-- `Profil.html` : pseudo et photo de profil
-- `Notification.html` : historique des notifications
-- `Style.css` : styles du site
-- `Supabase.js` : connexion à Supabase
-- `Connexion.js`, `Inscription.js`, `MotDePasse.js`, `NouveauMotDePasse.js` : comptes et mot de passe
-- `Conversation.js` : salons, messages, notifications, images
-- `Contact.js` : contacts
-- `image/` : logo, avatar et images du diaporama
+Projet-FilRouge/
+├── index.html
+├── Connexion.html
+├── CreerCompte.html
+├── Mot_de_Pass_Oublie.html
+├── Conversation.html
+├── Contact.html
+├── Profil.html
+├── Notification.html
+├── Parametres.html
+├── css/
+│   └── Style.css
+├── script.js/
+│   ├── Supabase.js
+│   ├── Connexion.js
+│   ├── Inscription.js
+│   ├── MotDePasse.js
+│   ├── NouveauMotDePasse.js
+│   ├── Conversation.js
+│   ├── Contact.js
+│   └── Profil.js
+|   ├── Parametre.js
+|   ├── Scipt.js
+├── image/
+└── README.md
   
 ## A savoir 
 Les salons sont publics et restent après la suppression du compte de la personne qui les a créés car d'autres personnes y ont écrit. Il n'y a pas de messages privés( qui serais une fonctionalite supp)
