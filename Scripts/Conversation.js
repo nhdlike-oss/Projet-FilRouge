@@ -57,7 +57,7 @@ function creerAvatar(nomPersonne, petit) {
 
 // ----- profils (pseudo + photo) ----------
  
-const AVATAR = "image/avatar.png"; // photo par défaut
+const AVATAR = "../image/avatar.png"; // photo par défaut
  
 // Va chercher dans la table "profils" les personnes qu'on ne connaît pas encore
 async function chargerProfils(ids) {
@@ -98,7 +98,7 @@ function creerPhoto(url, petit) {
   img.className = "photoMessage" + (petit ? " petit" : "");
   img.src = url || AVATAR;
   img.alt = "";
-  img.onerror = function () { img.onerror = null; img.src = "image/avatar.png"; };
+  img.onerror = function () { img.onerror = null; img.src = "../image/avatar.png"; };
   return img;
 }
  
