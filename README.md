@@ -1,6 +1,7 @@
   # Projet-FilRouge
 
 **Nom du projet :** JaWse (messagerie instantanée Web)
+
 **Site Web :** https://nhdlike-oss.github.io/Projet-FilRouge/
 
 ## Description
@@ -9,7 +10,7 @@ JaWse est une messagerie instantanée Web. Elle permet d'échanger en temps rée
 
 ## Objectif
 
-Offrir un espace simple, rapide et accessible pour discuter directement depuis un navigateur, sur ordinateur comme sur téléphone, sans rien installer.
+Offrir un espace simple, rapide et accessible pour discuter directement depuis un navigateur, sur ordinateur comme sur téléphone sans rien installer.
 
 ## Fonctionnalités principales
 
@@ -33,11 +34,11 @@ Offrir un espace simple, rapide et accessible pour discuter directement depuis u
 
 ## Confirmation de l'adresse courriel
 
-La confirmation par courriel est **désactivée** dans Supabase : une personne qui s'inscrit est connectée tout de suite, sans courriel.
+La confirmation par courriel est **désactivée** dans Supabase : une personne qui s'inscrit est connectée tout de suite sans courriel de confirmation .
 
-Pourquoi : quand elle est activée, Supabase envoie un courriel à chaque inscription, et son service gratuit limite fortement le nombre de courriels par heure. Après quelques essais, l'inscription affiche « Trop d'essais. Attends quelques minutes ». Pendant un test entre camarades, cela pourrait empêcher quelqu'un de créer un compte.
+Pourquoi : quand elle est activée, Supabase envoie un courriel à chaque inscription et son service gratuit limite fortement le nombre de courriels par heure. Après quelques essais, l'inscription affiche « Trop d'essais. Attends quelques minutes ». Pendant un test entre camarades, cela pourrait empêcher quelqu'un de créer un compte.
 
-Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmation désactivée, la personne arrive directement sur la messagerie. Si elle était réactivée, la page afficherait « Ouvre le courriel reçu pour confirmer ton inscription ».
+Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmation désactivée la personne arrive directement sur la messagerie. Si elle était réactivée la page afficherait « Ouvre le courriel reçu pour confirmer ton inscription ».
 
 ## Technologies utilisées
 
