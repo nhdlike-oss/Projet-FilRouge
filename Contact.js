@@ -8,13 +8,16 @@ const listeContacts = document.getElementById("mesContacts");
 const formInvitation = document.getElementById("formInvitation");
 const AVATAR = "image/avatar.png";
 
+// Garde en mémoire la personne connectée et les id de ses contacts
 let utilisateur = null;   // la personne connectée
 let mesIds = [];          // les id de mes contacts
 
+// Crée une ligne de la liste : photo, nom (cliquable ou non) et bouton d'action
 function creerLigne(profil, texteBouton, action, lien) {
     const li = document.createElement("li");
     li.className = "personne";
 
+      // Ajoute la photo de profil, avec l'avatar par défaut si l'image manque
     const img = document.createElement("img");
     img.className = "photoContact";
     img.src = profil.avatar_url || AVATAR;
@@ -55,16 +58,19 @@ async function afficherContacts() {
     mesIds = (liens || []).map(function (l) { return l.contact_id; });
     listeContacts.innerHTML = "";
 
+    // Affiche un message si l'utilisateur n'a aucun contact
     if (mesIds.length === 0) {
         listeContacts.innerHTML = "<li class='vide'>Tu n'as pas encore de contacts.</li>";
         return;
     }
 
+    // Récupère le pseudo et la photo de chaque contact
     const { data: profils } = await client
         .from("profils")
         .select("id, pseudo, avatar_url")
         .in("id", mesIds);
-
+    
+    // Affiche chaque contact avec un bouton « Retirer » et un lien vers la conversation
         for (const p of (profils || [])) {
         listeContacts.appendChild(creerLigne(p, "Retirer", function () {
             retirerContact(p.id);
@@ -74,8 +80,9 @@ async function afficherContacts() {
 }
 // 2. Rechercher un membre par nom d'utilisateur
 champRecherche.addEventListener("input", async function () {
-    if (!utilisateur) return;  
+    if (!utilisateur) return;       // Ne fait rien si personne n'est connecté
 
+     // Vide les résultats et attend au moins 2 lettres avant de cherche
     const texte = champRecherche.value.trim();
     listeResultats.innerHTML = "";
     if (texte.length < 2) return;   // au moins 2 lettres
@@ -132,6 +139,7 @@ formInvitation.addEventListener("submit", async function (e) {
 
     const sujet = "Rejoins-moi sur JaWse !";
         const texte = "Salut ! Je suis sur JaWse, une messagerie pour jaser, partager et échanger.\n\nInscris-toi ici : " + lien;
+        
     // Sur téléphone : menu de partage (WhatsApp, SMS, Gmail…)
     if (navigator.share) {
         try {
