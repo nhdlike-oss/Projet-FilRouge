@@ -48,7 +48,7 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 
 ## Équipe et répartition du travail
 
-- Nene Hassy Diallo  : conversation, salons, messages texte en temps réel, notifications, partage d'images, paramètres(déconnexion, suppression du compte),Affichage horodaté des messages , affichage téléphone
+- Nene Hassy Diallo  : conversation, salons, messages texte en temps réel, notifications, partage d'images, paramètres(déconnexion, suppression du compte),Affichage horodaté des messages , affichage téléphone, Readme
 - Suzie Valentin : index ,inscription, connexion, mot de passe oublié, contacts,  nouveau mot de pass,  photos de profil, affichage des photos de profil dans la conversation, affichage téléphone
 
 ## Structure du projet
