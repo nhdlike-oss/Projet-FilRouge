@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+         content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Mes contacts JaWse">
+    <link rel="icon" type="image/png" href="image/logo.png" sizes="32x32">
+    <link rel="stylesheet" href="Style.css">
+    <title>JaWse - Mes contacts</title>
+</head>
+<body class="corpsPage pageForm">
+	<main class="split">
+
+         <!-- Partie gauche : violet -->
+		<section class="cote">
+			<span class="forme forme1" aria-hidden="true"></span>
+			<span class="forme forme2" aria-hidden="true"></span>
+			<span class="forme forme3" aria-hidden="true"></span>
+
+			<a class="marque" href="index.html">
+				<img class="logo" src="image/logo.png" alt="">
+				<h1>JaWse</h1>
+			</a>
+
+			<div class="coteTexte">
+				<h2>Tes contacts</h2>
+				<p>Retrouve tes amis sur JaWse, ajoute-les à tes contacts ou invite ceux qui ne sont pas encore inscrits.</p>
+			</div>
+		</section>
+        
+        <!-- Partie droite -->
+		<section class="cadre">
+			<a class="retour" href="Conversation.html">
+				<span class="fleche" aria-hidden="true">&larr;</span>
+				Retour
+			</a>
+
+			<h2>Mes contacts</h2>
+
+			<!-- 1. Recherche -->
+			<label class="champ" for="recherche">
+				Rechercher un membre
+				<input type="search" id="recherche" placeholder="Nom d'utilisateur…" autocomplete="off">
+			</label>
+			<ul id="resultats" class="listeContacts"></ul>
+
+            <!-- 2. Mes contacts -->
+			<h3 class="titreSection">Ma liste</h3>
+			<ul id="mesContacts" class="listeContacts"></ul>
+
+			<!-- 3. Inviter -->
+			<h3 class="titreSection">Inviter un ami</h3>
+			<form class="formCompte" id="formInvitation">
+				<label class="champ" for="courrielAmi">
+					mon courriel
+					<input type="email" id="courrielAmi" placeholder="ami@exemple.com" required>
+				</label>
+				<button type="submit" class="boutonForm">Envoyer l'invitation</button>
+			</form>
+		</section>
+
+    
+    </main>
+   
+	<!-- Pied de page avec les liens légaux et le copyright -->
+	<footer class="piedPage">
+		<nav class="piedLiens">
+			<a href="Conditions_utilisation.html">Conditions d'utilisation</a>
+			<a href="Politique_confidentialite.html">Politique de confidentialité</a>
+			
+		</nav>
+		<p>© 2026 JaWse. Tous droits réservés.</p>
+	</footer>
+	
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="Scripts/Supabase.js"></script>
+	<script src="Scripts/Contact.js"></script>
+</body>
+</html>

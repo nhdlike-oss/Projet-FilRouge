@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	 <meta name="viewport"
+         content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<!-- Icône affichée dans l'onglet du navigateur -->
+	<link rel="icon" type="image/png" href="image/logo.png" sizes="32x32">
+	<link rel="stylesheet" href="Style.css">
+	<title>JaWse</title>
+</head>
+<body class="corpsPage pageAccueil">
+
+	<!-- En-tête avec le logo qui ramène à l'accueil -->
+	<header class="barre">
+		<a class="marque" href="index.html">
+			<img class="logo" src="image/logo.png" alt="">
+		</a>
+	</header>
+
+	<main class="accueil">
+
+		<!-- Présentation du site : titre, slogan et description (à gauche) -->
+		<section class="presentation">
+			<h2>Bienvenue sur JaWse</h2>
+			<p class="slogan">Jaser - Partager - Échanger</p>
+			<p class="intro">
+				   Votre messagerie organisée simplement. Retrouvez tous vos échanges au même endroit.
+			</p>
+
+			<!-- Diaporama d'images qui défilent -->
+			<div class="diaporama">
+				<img class="diapo" src="image/image1.png" alt="Des personnes qui se rencontrent" style="max-width: 100%;">
+				<img class="diapo" src="image/image2.jpg" alt="Une conversation qui démarre" style="max-width: 100%;">
+				<img class="diapo" src="image/image3.jpg" alt="Un salon où l'on partage" style="max-width: 100%;">
+				<img class="diapo" src="image/image4.jpg" alt="Des liens qui durent" style="max-width: 100%;">
+			</div>
+		</section>
+
+		<!-- Formulaire de connexion affiché sur ordinateur -->
+		<section class="connexion" id="connexion">
+			<h3>Connexion</h3>
+
+			<!-- Message d'erreur affiché si la connexion échoue -->
+			<p id="erreurConnexion" class="messageErreur" role="alert" hidden></p>
+
+			<form class="formConnexion" id="formConnexion">
+				<label class="champ" for="contact">
+					Email
+					<input type="email" name="contact" id="contact" autocomplete="email" required>
+				</label>
+
+				<label class="champ" for="pwd">
+					Mot de passe
+					<input type="password" name="password" id="pwd" autocomplete="current-password" required>
+				</label>
+
+				<div class="options">
+					<label>
+						<input type="checkbox" name="souvenir"> Se souvenir de moi
+					</label>
+					<a href="Mot_de_Pass_Oublie.html">Mot de passe oublié ?</a>
+				</div>
+
+				<button type="submit" class="connexionAcces">Se connecter</button>
+			</form>
+
+			<p class="inscription">Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
+		</section>
+
+		<!-- Boutons de connexion et d'inscription affichés sur téléphone -->
+		<div class="connexionMobile">
+			<a class="bouton" href="Connexion.html">Se connecter</a>
+			<p>Pas encore de compte ? <a href="CreerCompte.html">Inscris-toi</a></p>
+		</div>
+
+	</main>
+
+	<!-- Pied de page avec les liens légaux et le copyright -->
+	 
+	<footer class="piedPage">
+		<nav class="piedLiens">
+			<a href="Conditions_utilisation.html">Conditions d'utilisation</a>
+			<a href="Politique_confidentialite.html">Politique de confidentialité</a>
+			
+		</nav>
+		<p>© 2026 JaWse. Tous droits réservés.</p>
+	</footer>
+
+	<!-- Chargement de Supabase, de sa configuration et du script de connexion -->
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  	<script src="Scripts/Supabase.js"></script>
+	<script src="Scripts/Connexion.js"></script>
+
+</body>
+</html>
