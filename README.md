@@ -1,55 +1,7 @@
-# Projet-FilRouge
-Nom du projet : JaWse (Site WebMessagerie)  
-Site Web : https://nhdlike-oss.github.io/Projet-FilRouge
-## Description
-JaWse est une messagerie instantanée Web. Elle permet d'échanger en temps réel des messages avec ses contacts et dans des salons de conversation. Chaque personne peut aussi choisir un pseudo et une photo de profil pour se faire reconnaître parc ces contacts.
-
-## OBJECTIF
-Offrir un espace simple, rapide et accessible pour discuter directement depuis un navigateur sur ordinateur comme sur téléphone sans rien installer.
-
-## Fonctionnalités principales
-- Inscription et connexion
-- Liste de contacts
-- Liste des salons de conversation (les salons sont publics : toute personne connectée peut les voir, y écrire et en créer)
-- Envoi et réception de messages texte en temps réel
-- Affichage horodaté des messages
-
-  
-## Fonctionnalités secondaires
-
-- Notifications visuelles, avec historique
-- Indicateur « en ligne »
-- Indicateur « en train d'écrire… »
-- Affichage adapté au téléphone
--  Partage d'images dans les messages
-
-
-## Fonctionnalité supplémentaire
-
-**Profil utilisateur avec photo** : chaque personne peut choisir un pseudo et téléverser sa photo de profil. La photo s'affiche à côté de ses messages dans les salons et dans la liste des personnes en ligne.
-
-## Confirmation de l'adresse courriel
-
-La confirmation par courriel est **désactivée** dans Supabase : une personne qui s'inscrit est connectée tout de suite, sans courriel.
-
-Pourquoi : quand elle est activée, Supabase envoie un courriel à chaque inscription et son service gratuit limite fortement le nombre de courriels par heure. Après quelques essais, l'inscription affiche « Trop d'essais. Attends quelques minutes ». Pendant un teste entre camarade  cela pourrait empêcher quelqu'un de créer un compte.
-
-Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmation désactivée la personne arrive directement sur la messagerie. Si elle était réactivée la page afficherait « Ouvre le courriel reçu pour confirmer ton inscription ».
-
-
-## Technologies utilisées
-- HTML, CSS, JavaScript
-- Supabase (comptes, base de données, temps réel, stockage des photos et images)
-- GitHub Pages (publication du site)
-
-  
-## Équipe
-- Nene Hassy Diallo : conversation, salons, messages, notifications, partage d'images, paramètres, affichage téléphone
-- Suzie Valentin : contacts, profil , photos de profil,connexion
-  
-# Projet-FilRouge
+  # Projet-FilRouge
 
 **Nom du projet :** JaWse (messagerie instantanée Web)
+
 **Site Web :** https://nhdlike-oss.github.io/Projet-FilRouge/
 
 ## Description
@@ -58,7 +10,7 @@ JaWse est une messagerie instantanée Web. Elle permet d'échanger en temps rée
 
 ## Objectif
 
-Offrir un espace simple, rapide et accessible pour discuter directement depuis un navigateur, sur ordinateur comme sur téléphone, sans rien installer.
+Offrir un espace simple, rapide et accessible pour discuter directement depuis un navigateur, sur ordinateur comme sur téléphone sans rien installer.
 
 ## Fonctionnalités principales
 
@@ -82,11 +34,11 @@ Offrir un espace simple, rapide et accessible pour discuter directement depuis u
 
 ## Confirmation de l'adresse courriel
 
-La confirmation par courriel est **désactivée** dans Supabase : une personne qui s'inscrit est connectée tout de suite, sans courriel.
+La confirmation par courriel est **désactivée** dans Supabase : une personne qui s'inscrit est connectée tout de suite sans courriel de confirmation .
 
-Pourquoi : quand elle est activée, Supabase envoie un courriel à chaque inscription, et son service gratuit limite fortement le nombre de courriels par heure. Après quelques essais, l'inscription affiche « Trop d'essais. Attends quelques minutes ». Pendant un test entre camarades, cela pourrait empêcher quelqu'un de créer un compte.
+Pourquoi : quand elle est activée, Supabase envoie un courriel à chaque inscription et son service gratuit limite fortement le nombre de courriels par heure. Après quelques essais, l'inscription affiche « Trop d'essais. Attends quelques minutes ». Pendant un test entre camarades, cela pourrait empêcher quelqu'un de créer un compte.
 
-Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmation désactivée, la personne arrive directement sur la messagerie. Si elle était réactivée, la page afficherait « Ouvre le courriel reçu pour confirmer ton inscription ».
+Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmation désactivée la personne arrive directement sur la messagerie. Si elle était réactivée la page afficherait « Ouvre le courriel reçu pour confirmer ton inscription ».
 
 ## Technologies utilisées
 
@@ -114,4 +66,6 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 - `Conversation.js` : salons, messages, notifications, images
 - `Contact.js` : contacts
 - `image/` : logo, avatar et images du diaporama
- 
+  
+## A savoir 
+Les salons sont publics et restent après la suppression du compte de la personne qui les a créés car d'autres personnes y ont écrit. Il n'y a pas de messages privés( qui serais une fonctionalite supp)
