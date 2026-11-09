@@ -1,14 +1,17 @@
 const formulaire = document.getElementById("formInscription");
 const message = document.getElementById("messageInscription");
 
+// Gère l'envoi du formulaire d'inscription
 formulaire.addEventListener("submit", async function (e) {
+     // Empêche le rechargement de la page
     e.preventDefault(); 
 
-
+    // Récupère le courriel et les deux mots de passe saisis
     const courriel = document.getElementById("Courriel").value.trim();
     const motDePasse = document.getElementById("Mot_de_pass").value;
     const confirmation = document.getElementById("Confirmer_Mot_de_pass").value;
 
+    // Vérifie que les deux mots de passe sont identiques, sinon affiche une erreur
     if (motDePasse !== confirmation) {
             message.textContent = "Les deux mots de passe ne sont pas identiques.";
             message.className = "messageErreur";
@@ -17,7 +20,7 @@ formulaire.addEventListener("submit", async function (e) {
             return;
         }
 
-    // Demande à Supabase de créer le compte
+    // Demande à Supabase de créer le compte avec les infos du profil
     const { data, error } = await client.auth.signUp({
         email: courriel,
         password: motDePasse,
@@ -30,7 +33,7 @@ formulaire.addEventListener("submit", async function (e) {
         }
     });
 
-       
+    // En cas d'erreur, affiche un message clair selon le problème  
        if (error) {
         const texte = error.message.toLowerCase();
 
@@ -48,6 +51,8 @@ formulaire.addEventListener("submit", async function (e) {
         message.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
     }
+
+    // Si la session est ouverte, redirige vers la messagerie
     if (data.session) {
 
             // Pour connecter la personne directement à la page messagerie
