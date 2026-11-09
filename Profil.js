@@ -6,7 +6,7 @@ const message = document.getElementById("messageProfil");
 const boutonSupprimer = document.getElementById("supprimerPhoto");
 const AVATAR = "image/avatar.png";
 
-// la personne connectée
+// Garde en mémoire la personne connectée et la photo choisie mais pas encore envoyée
 let utilisateur = null;
 // la photo choisie, pas encore envoyée
 let nouvellePhoto = null;
@@ -18,7 +18,7 @@ function afficherMessage(texte, classe) {
     message.hidden = false;
 }
 
-// Supprimer toutes les photos de l'utilisateur dans le storage
+// Supprime toutes les anciennes photos de l'utilisateur dans le bucket "avatars"
 async function supprimerAnciennesPhotos() {
     const { data: fichiers } = await client.storage
         .from("avatars")
@@ -32,6 +32,7 @@ async function supprimerAnciennesPhotos() {
     }
 }
 
+// 1. Charger le profil
 async function chargerProfil() {
     const { data } = await client.auth.getUser();
     utilisateur = data.user;
@@ -49,7 +50,7 @@ async function chargerProfil() {
         .eq("id", utilisateur.id)
         .maybeSingle();
 
-    // S'il existe, on remplit la page
+    // Remplit le pseudo, la bio et la photo si le profil existe
     if (profil) {
         document.getElementById("pseudo").value = profil.pseudo || "";
         document.getElementById("bio").value = profil.bio || "";
@@ -60,12 +61,16 @@ async function chargerProfil() {
     }
 }
 
+// Lance le chargement du profil à l'ouverture de la page
+
 chargerProfil();
 
+// 2. Vérifier la photo choisie et afficher son aperçu
 champPhoto.addEventListener("change", function () {
     const fichier = champPhoto.files[0];
     if (!fichier) return;
 
+    // Accepte seulement les images PNG, JPEG ou WEBP
     const typesOk = ["image/png", "image/jpeg", "image/webp"];
     if (!typesOk.includes(fichier.type)) {
         alert("Choisis une image PNG, JPEG ou WEBP.");
@@ -74,12 +79,14 @@ champPhoto.addEventListener("change", function () {
     }
 
     // Vérifier la taille (2 Mo maximum)
+    // Refuse les images de plus de 2 Mo
     if (fichier.size > 2 * 1024 * 1024) {
         alert("L'image doit faire moins de 2 Mo.");
         champPhoto.value = "";
         return;
     }
 
+    // Garde la photo en attente et l'affiche en aperçu
     nouvellePhoto = fichier;
     apercu.src = URL.createObjectURL(fichier);
     message.hidden = true;
@@ -96,7 +103,8 @@ formulaire.addEventListener("submit", async function (e) {
         updated_at: new Date().toISOString()
     };
 
-    // Envoyer la photo dans le bucket "avatars"
+    // Si une nouvelle photo est choisie : supprime l'ancienne,
+    // envoie la nouvelle et garde son lien
     if (nouvellePhoto) {
         await supprimerAnciennesPhotos();
 
