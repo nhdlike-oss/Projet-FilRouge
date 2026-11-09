@@ -54,6 +54,7 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 ## Structure du projet
 ```
 Projet-FilRouge/
+├──html/
 ├── index.html
 ├── Connexion.html
 ├── CreerCompte.html
@@ -67,7 +68,7 @@ Projet-FilRouge/
 ├── Politique_confidentialite.html
 ├── NouveauMoDePasses.html/
 └── Style.css/
-├── script.js/
+├── Script.js/
 │   ├── Supabase.js
 │   ├── Connexion.js
 │   ├── Inscription.js
