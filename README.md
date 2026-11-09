@@ -69,3 +69,11 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
   
 ## A savoir 
 Les salons sont publics et restent après la suppression du compte de la personne qui les a créés car d'autres personnes y ont écrit. Il n'y a pas de messages privés( qui serais une fonctionalite supp)
+
+
+## Améliorations possibles
+
+- Supprimer ou modifier un message ou image  déjà envoyé
+- Messages privés entre deux personnes
+- Indicateur « message lu »
+-  Afficher les messages reçus pendant une absence (déconnexion ou hors ligne)
