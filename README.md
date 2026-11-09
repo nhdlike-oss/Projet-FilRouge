@@ -63,8 +63,10 @@ Projet-FilRouge/
 ├── Profil.html
 ├── Notification.html
 ├── Parametres.html/
-├── css/
-   └── Style.css
+├──Condition_utulisation.html
+├── Politique_confidentialite.html
+├── NouveauMoDePasses.html/
+└── Style.css/
 ├── script.js/
 │   ├── Supabase.js
 │   ├── Connexion.js
@@ -75,7 +77,8 @@ Projet-FilRouge/
 │   ├── Contact.js
 │   └── Profil.js
 |   ├── Parametre.js
-|   ├── Scipt.js
+|   ├── Script.js
+|   ├── Notification.js/
 ├── image/
 └── README.md
 ```
