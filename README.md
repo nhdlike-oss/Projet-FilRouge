@@ -62,9 +62,9 @@ Projet-FilRouge/
 ├── Contact.html
 ├── Profil.html
 ├── Notification.html
-├── Parametres.html
+├── Parametres.html/
 ├── css/
-│   └── Style.css
+   └── Style.css
 ├── script.js/
 │   ├── Supabase.js
 │   ├── Connexion.js
