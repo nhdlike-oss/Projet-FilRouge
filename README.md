@@ -48,8 +48,8 @@ Le code d'inscription (`Inscription.js`) gère les deux cas : avec la confirmati
 
 ## Équipe et répartition du travail
 
-- Nene Hassy Diallo  : conversation, salons, messages, notifications, partage d'images, paramètres(déconnexion, suppression du compte), affichage des photos de profil dans la conversation, affichage téléphone
-- Suzie Valentin : inscription, connexion, mot de passe oublié, contacts,  photos de profil
+- Nene Hassy Diallo  : conversation, salons, messages, notifications, partage d'images, paramètres(déconnexion, suppression du compte), , affichage téléphone
+- Suzie Valentin : inscription, connexion, mot de passe oublié, contacts,  photos de profil,affichage des photos de profil dans la conversation
 
 ## Structure du projet
 
