@@ -2,7 +2,7 @@
 
 **Nom du projet :** JaWse (messagerie instantanée Web)
 
-**Site Web :** https://nhdlike-oss.github.io/Projet-FilRouge/
+**Site Web :**    https://nhdlike-oss.github.io/Projet-FilRouge/html/index.html
 
 ## Description
 
